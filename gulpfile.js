@@ -18,7 +18,7 @@ gulp.task("server", function() {
 });
 
 //sass
-gulp.task('sass', function() {
+gulp.task('style', function() {
     return sass('scss/',{
       style: 'expanded',
       compass: true,
@@ -39,19 +39,6 @@ gulp.task('ejs',function(){
   .pipe(gulp.dest('projects/public'))
 });
 
-//projects scss
-gulp.task('projects-scss',function(){
-  return sass('projects/scss/',{
-      style: 'expanded',
-      compass: true,
-      sourcemap: true
-    })
-    .pipe(autoprefixer())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('projects/public/css/'))
-    .pipe(browser.reload({stream:true}));
-});
-
 //styledocco
 gulp.task('styledocco',function(){
   gulp.src('styleguide/',function(){
@@ -66,19 +53,16 @@ gulp.task('styledocco',function(){
     .pipe(styledocco({
       out: 'styleguide/',
       include: ['bootstrap/css/bootstrap.css'],
-      name: 'ABUI Style Guide'
+      name: 'GuideLine'
     }))
   });
 });
 
 // watch
 gulp.task('watch', function () {
-    gulp.watch('scss/**/*.scss', ['sass']);
+    gulp.watch('scss/**/*.scss', ['style']);
     gulp.watch('styleguide/scss/**/*.scss', ['styledocco']);
+    gulp.watch("./**/*.html").on("change", browser.reload);
 });
 
-gulp.task('default',['server'],function(){
-  gulp.watch('scss/**/*.scss', ['sass']);
-  gulp.watch('styleguide/scss/**/*.scss', ['styledocco']);
-  gulp.watch("./**/*.html").on("change", browser.reload);
-});
+gulp.task('default',['server','watch']);
