@@ -20,6 +20,6 @@
     "gulp-ruby-sass": "^1.0.5",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-styledocco": "0.0.3",
-    "webpack": "^1.12.0"
+    "webpack": "^1.12.2"
   }
 }
