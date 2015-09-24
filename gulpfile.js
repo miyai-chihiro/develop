@@ -5,7 +5,6 @@ var gulp = require("gulp"),
     autoprefixer = require('gulp-autoprefixer'),
     ejs = require("gulp-ejs"),
     browser = require("browser-sync"),
-    webpack = require('webpack'),
     webpack = require('gulp-webpack');
 
 // タスク名はファイル名と同じにしておくと見通しが良い
