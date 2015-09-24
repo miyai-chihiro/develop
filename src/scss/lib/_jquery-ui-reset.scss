@@ -1,0 +1,72 @@
+//
+// jQuery Ui reset
+// --------------------------------------------------
+// for jquery-ui-1.10.4.css
+
+
+
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+  @include border-bottom-right-radius($border-radius-base);
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-left,
+.ui-corner-bl {
+  @include border-bottom-left-radius($border-radius-base);
+}
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-right,
+.ui-corner-tr {
+  @include border-top-right-radius($border-radius-base);
+}
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-left,
+.ui-corner-tl {
+  @include border-top-left-radius($border-radius-base);
+}
+
+.ui-widget-content {
+  border: none;
+  background: $dropdown-bg;
+  color: $gray;
+  @include box-shadow($gray-lighter 0 1px 4px);
+  @include transition(.25s);
+}
+.ui-widget {
+  font-family: $font-family-base;
+}
+
+.ui-widget-header {
+  border: none;
+  background: $brand-primary;
+  color: $inverse;
+  font-weight: bold;
+  .ui-icon {
+    background-image: none;
+  }
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  border: none;
+  background: none;
+  font-weight: normal;
+  color: $gray-light;
+  padding: 4px 8px;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+  border: none;
+  background: white;
+  color: $brand-primary;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+  border: none;
+  background: $brand-primary;
+  font-weight: normal;
+  color: $inverse;
+}
+

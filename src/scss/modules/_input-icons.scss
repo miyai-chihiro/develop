@@ -1,0 +1,81 @@
+//
+// Input Icons
+// --------------------------------------------------
+
+.form-group {
+  position: relative;
+}
+
+.form-control {
+  & + .input-icon {
+    position: absolute;
+    // top: 2px;
+    // right: 2px;
+    top: 23px;
+    right: 17px;
+    line-height: 40px;
+    vertical-align: middle;
+    font-size: $input-icon-font-size;
+    color: $gray-subtle;
+    background-color: white;
+    padding: 0 12px 0 0;
+    border-radius: $input-border-radius;
+    &.input-icon-nolabel {
+      top: 2px;
+    }
+  }
+}
+
+// Icons sizing
+// ---------------------------
+
+// Huge
+.input-hg + .input-icon {
+  line-height: 49px;
+  padding: 0 16px 0 0;
+}
+
+//Large
+.input-lg + .input-icon {
+  line-height: 41px;
+  padding: 0 15px 0 0;
+}
+
+// Small
+.input-sm + .input-icon {
+  font-size: $font-size-base;
+  line-height: 30px;
+  padding: 0 10px 0 0;
+}
+
+
+// Icons states
+// ---------------------------
+
+.has-success {
+  .input-icon {
+    color: $brand-success;
+  }
+}
+.has-warning {
+  .input-icon {
+    color: $brand-warning;
+  }
+}
+.has-error {
+  .input-icon {
+    color: $brand-danger;
+  }
+}
+.form-control[disabled] + .input-icon,
+.form-control[readonly] + .input-icon,
+fieldset[disabled] .form-control + .input-icon,
+.form-control.disabled + .input-icon,
+.form-control[disabled] + .input-group-btn .btn .input-icon {
+  // color: mix($gray, white, 40%);
+  background-color: transparent;
+  @include opacity(.7);
+}
+
+
+

@@ -1,0 +1,102 @@
+//
+// Structure for Guideline Documentation Only
+// --------------------------------------------------
+
+
+// Loading Compass
+@import "compass";
+
+// Loading custom fonts
+//@import url("https://fonts.googleapis.com/css?family=Lato:400,700,700italic,900,400italic,300");
+@import "modules/local-fonts";
+@import "modules/glyphicons";
+
+// Loading config with variables (changing them leads to changing a color scheme)
+@import "variables";
+
+// Utility mixins for greater good
+@import "mixins";
+
+@import "modules/scaffolding";
+
+// Spaces
+@import "spaces";
+
+
+
+.structure-class {
+  font-size: ceil($component-font-size-base * 0.785);   // ~11px
+  color: white;
+  display: block;
+  position: absolute;
+  background: $gray-light;
+  padding: 0 $x;
+  margin-left: -$l;
+  margin-top: -24px;
+}
+
+.container,
+ .container div,
+ .checkbox {
+    margin: $s;
+    margin-bottom: $l;
+    padding: $m $s $s $s;
+    border: 1px dotted gray;
+    &.row,
+    &.form-inline {
+      border: 1px dotted $brand-primary;
+      background: mix($brand-primary, white, 40%);
+      > .structure-class {
+        background: $brand-primary;
+      }
+      > .form-group {
+        border: 1px dotted $brand-primary;
+        background: mix($brand-primary, white, 30%);
+        > .structure-class {
+          background: mix($brand-primary, white, 80%);
+        }
+        > .input-group,
+          .btn-group {
+          border: 1px dotted $brand-primary;
+          background: mix($brand-primary, white, 20%);
+          > .structure-class {
+            background: mix($brand-primary, white, 70%);
+          }
+          > .btn-group {
+            border: 1px dotted $brand-primary;
+            background: mix($brand-primary, white, 10%);
+          }
+        }
+        > label{
+          &.checkbox,
+          &.checkbox-inline {
+            border: 1px dotted $brand-primary;
+            background: mix($brand-primary, white, 20%);
+            > .structure-class {
+              background: mix($brand-primary, white, 70%);
+            }
+          }
+        }
+      }
+    }
+  }
+  .container {
+  &.with-sidebar {
+    margin-left: $sidebar-width + $s;
+    @media (max-width: $screen-lg-min + $sidebar-width - 20px) {
+      margin-left: $s;
+    }
+  }
+  .form-section-title,
+  .form-section-text,
+  label:not(.checkbox),
+  .help-block,
+  .form-count,
+  .label-additional {
+    background: mix($brand-info, white, 20%);
+    &.displaynone-structure {
+      background: $gray-subtle;
+
+    }
+  }
+}

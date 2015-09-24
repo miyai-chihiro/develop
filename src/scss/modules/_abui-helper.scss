@@ -1,0 +1,31 @@
+//
+// abui helper.css
+// --------------------------------------------------
+
+.block { display: block;}
+.none { display: none;}
+
+.absolute { position: absolute;}
+.relative { position: relative;}
+
+.w80 { width: 80px; }
+.w160 { width: 160px; }
+.w240 { width: 240px; }
+.w320 { width: 320px; }
+
+.w100per { width: 100%; }
+
+.table { display: table;}
+.cell { display: table-cell; }
+
+.float-left { float: left;}
+.float-right { float: right;}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: " ";
+}
+clearfix:after {
+  clear: both;
+}

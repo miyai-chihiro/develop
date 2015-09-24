@@ -1,0 +1,17 @@
+//
+// Dialog
+// --------------------------------------------------
+
+
+.dialog-box {
+	z-index:4000;
+	background: white;
+	margin-top: 32px;
+	// width:100%;
+	// height:320px;
+	// left:50%;
+	// top:50%;
+	padding: 0;
+	@include border-radius($border-radius-base);
+	@include box-shadow($gray-lighter 0 8px 16px);
+}

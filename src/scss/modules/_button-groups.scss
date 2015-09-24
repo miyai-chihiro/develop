@@ -1,0 +1,136 @@
+//
+// Button groups
+// --------------------------------------------------
+
+// Button carets
+//
+// Match the button text color to the arrow/caret for indicating dropdown-ness.
+
+.caret {
+  .btn-default & {
+    border-top-color: $btn-default-color;
+  }
+  .btn-primary &,
+  .btn-success &,
+  .btn-warning &,
+  .btn-danger &,
+  .btn-info & {
+    border-top-color: white;
+  }
+}
+.dropup {
+  & .btn-default .caret {
+    border-bottom-color: $btn-default-color;
+  }
+  .btn-primary,
+  .btn-success,
+  .btn-warning,
+  .btn-danger,
+  .btn-info {
+   .caret {
+      border-bottom-color: $inverse;
+    }
+  }
+}
+
+// Sizing
+//
+// Remix the default button sizing classes into new ones for easier manipulation.
+
+.btn-group-xs > .btn { @extend .btn-xs; }
+.btn-group-sm > .btn { @extend .btn-sm; }
+.btn-group-lg > .btn { @extend .btn-lg; }
+.btn-group-gh > .btn { @extend .btn-hg; }
+
+
+.btn-group {
+  > .btn {
+    & + .btn {
+      margin-left: -1px;
+    }
+    & + .dropdown-toggle {
+      border-left: 1px solid mix($btn-default-bg, white, 50%);
+      padding-left: 12px;
+      padding-right: 12px;
+      .caret {
+        margin: 7px 3px 5px;
+      }
+      &.btn-primary {
+        border-left-color: mix($brand-primary, white, 50%);
+      }
+      &.btn-success {
+        border-left-color: mix($brand-success, white, 50%);
+      }
+      &.btn-info {
+        border-left-color:mix($brand-info, white, 50%);
+      }
+      &.btn-warning {
+        border-left-color:mix($brand-warning, white, 50%);
+      }
+      &.btn-danger {
+        border-left-color:mix($brand-danger, white, 50%);
+      }
+      &.btn-inverse {
+        border-left-color:$gray-subtle;
+      }
+    }
+    &.btn-gh + .dropdown-toggle {
+      .caret {
+        margin-left: 7px;
+        margin-right: 7px;
+      }
+    }
+    &.btn-sm + .dropdown-toggle {
+      .caret {
+        margin: 5px 3px 3px;
+      }
+    }
+    &.btn-lg + .dropdown-toggle {
+      .caret {
+        margin: 8px 3px 7px;
+      }
+    }
+    &.btn-hg + .dropdown-toggle {
+      .caret {
+        margin: 10px 3px 8px;
+      }
+    }
+  }
+}
+
+.dropdown-toggle {
+  .caret {
+    margin-left: 8px;
+  }
+}
+
+.btn-group > .btn,
+.btn-group > .dropdown-menu,
+.btn-group > .popover {
+  font-weight: 400;
+}
+
+.btn-group:focus .dropdown-toggle {
+  outline: none;
+  @include transition(.25s);
+}
+
+// The clickable button for toggling the menu
+// Remove the gradient and set the same inset shadow as the :active state
+.btn-group.open .dropdown-toggle {
+  color: fade($btn-default-color, 75%);
+  @include box-shadow(none);
+}
+
+// Other button locations
+// Button with icon inside
+.btn-toolbar .btn {
+  &.active {
+    color: $btn-default-color;
+  }
+  > [class^="icon-abui-"] {
+    font-size: $icon-normal;
+    margin: 0 1px;
+  }
+}
+

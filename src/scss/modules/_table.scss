@@ -1,0 +1,406 @@
+//
+// Tables
+// --------------------------------------------------
+
+
+table {
+  background-color: white;
+}
+th {
+  text-align: left;
+}
+
+
+// Baseline styles
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 0;
+  // Cells
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+      	font-size: $component-font-size-base;
+        padding: $table-cell-padding;
+        line-height: 1.4;
+        vertical-align: top;
+        border-top: 1px solid $table-border-color;
+        vertical-align: middle;
+      }
+      > th {
+        background-color: $table-bg-th;
+        border-top: 1px solid $table-border-th-color;
+        color: $gray;
+        font-weight: normal;
+        font-size: ceil($component-font-size-base*0.857);
+        &.emphasis {
+          background-color: $table-bg-th-emphasis;
+        }
+      }
+    }
+  }
+  // Bottom align for column headings
+  > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid $table-border-color;
+  }
+  // Remove top border from thead by default
+  > caption + thead,
+  > colgroup + thead,
+  > thead:first-child {
+    > tr:first-child {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+  // Account for multiple tbody instances
+  > tbody + tbody {
+    border-top: 2px solid $table-border-color;
+  }
+
+  // Nesting
+  .table {
+    background-color: $body-bg;
+  }
+}
+
+
+// Condensed table w/ half padding
+
+.table-condensed {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: $table-condensed-cell-padding;
+      }
+    }
+  }
+}
+
+
+// Bordered version
+//
+// Add borders all around the table and between all the columns.
+
+.table-bordered {
+  border: 0;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th {
+      	border: 1px solid $table-border-th-color;
+      }
+      > td {
+        border: 1px solid $table-border-color;
+      }
+      > th:first-child,
+      > td:first-child {
+        border-left: 0;
+      }
+      > th:last-child,
+      > td:last-child {
+        border-right: 0;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+  > tbody > tr:nth-child(odd) {
+  	> th {
+      background-color: $table-bg-th;
+      &.emphasis {
+          background-color: $table-bg-th-emphasis;
+        }
+    }
+    > td {
+      background-color: $table-bg-accent;
+    }
+  }
+}
+
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover,
+.table-hover.table-striped {
+  > tbody > tr:hover, {
+  	> th {
+      background-color: $table-bg-th;
+    }
+    > td {
+      background-color: $table-bg-hover;
+    }
+    &.success > td,
+		> td.success {
+			background-color: mix($table-state-success-bg, white, 50%);
+		}
+		&.info > td,
+		> td.info {
+			background-color: mix($table-state-info-bg, white, 50%);
+		}
+		&.warning > td,
+		> td.warning {
+			background-color: mix($table-state-warning-bg, white, 50%);
+		}
+		&.danger > td,
+		> td.danger {
+			background-color: mix($table-state-danger-bg, white, 50%);
+		}
+  }
+}
+
+.table-hover-cell,
+.table-hover-cell.table-striped {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > td.hover {
+        background-color: mix($table-bg-hover, white, 50%);
+        &:hover {
+        	background-color: $table-bg-hover;
+        }
+      }
+    }
+  }
+}
+
+
+// Table cell sizing
+//
+// Reset default table behavior
+
+table col[class*="col-"] {
+  position: static; // Prevent border hiding in Firefox and IE9/10 (see https://github.com/twbs/bootstrap/issues/11623)
+  float: none;
+  display: table-column;
+}
+table {
+  td,
+  th {
+    &[class*="col-"] {
+      position: static; // Prevent border hiding in Firefox and IE9/10 (see https://github.com/twbs/bootstrap/issues/11623)
+      float: none;
+      display: table-cell;
+    }
+  }
+}
+
+
+// Table rows
+//
+
+.table,
+.table-striped {
+	> thead,
+  > tbody,
+  > tfoot {
+  	> tr,
+  	> tr:nth-child(odd) {
+  		&.success > td,
+  		> td.success {
+  			background-color: $table-state-success-bg;
+  			color: $brand-primary;
+  		}
+  		&.info > td,
+  		> td.info {
+  			background-color: $table-state-info-bg;
+  			color: $brand-info;
+  		}
+  		&.warning > td,
+  		> td.warning {
+  			background-color: $table-state-warning-bg;
+  			color: $brand-warning;
+  		}
+  		&.danger > td,
+  		> td.danger {
+  			background-color: $table-state-danger-bg;
+  			color: $brand-danger;
+  		}
+  	}
+  }
+}
+
+
+// Responsive tables
+//
+// Wrap your tables in `.table-responsive` and we'll make them mobile friendly
+// by enabling horizontal scrolling. Only applies <768px. Everything above that
+// will display normally.
+
+.table-responsive {
+  @media (max-width: $grid-float-breakpoint) {
+    width: 100%;
+    margin-bottom: ($line-height-computed * 0.75);
+    overflow-y: hidden;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid $table-border-color;
+    -webkit-overflow-scrolling: touch;
+
+    // Tighten up spacing
+    > .table {
+      margin-bottom: 0;
+
+      // Ensure the content doesn't wrap
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    // Special overrides for the bordered tables
+    > .table-bordered {
+      border: 0;
+
+      // Nuke the appropriate borders so that the parent can handle them
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th:first-child,
+          > td:first-child {
+            border-left: 0;
+          }
+          > th:last-child,
+          > td:last-child {
+            border-right: 0;
+          }
+        }
+      }
+
+      // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
+      // chances are there will be only one `tr` in a `thead` and that would
+      // remove the border altogether.
+      > tbody,
+      > tfoot {
+        > tr:last-child {
+          > th,
+          > td {
+            border-bottom: 0;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+
+// Controls
+
+.table {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th {
+      	.dropdown {
+      		margin-left: -8px;
+      		.btn-default {
+					  @include button-variant($gray, transparent, transparent, transparent);
+					}
+      	}
+      }
+      > th,
+      > td {
+        .checkbox,
+        .radio {
+          .icons {
+            font-size: floor($component-font-size-base*1.143); //16px
+          }
+          &.no-label {
+            width: floor($component-font-size-base*1.143);
+            .icons {
+              width: floor($component-font-size-base*1.143);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Sort
+.table {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th {
+        &.table-sort {
+          &.table-sort-active {
+            background-color: $table-bg-th-emphasis;
+          }
+          .dsc {
+            display: inline-block;
+            cursor: pointer;
+            &:hover {
+              @include opacity(.7);
+            }
+            &:after {
+              font-family: 'ABUI-icons';
+              color: $inverse;
+              width: 12px;
+              display: inline-block;
+              padding-left:$s;
+              content: "\e114";
+            }
+          }
+          .asc {
+            @extend .dsc;
+            &:after {
+              content: "\e113";
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// inner scroll fade
+.innerScrollFade .fadeout {
+display: block;
+background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(white));
+height: 60px;
+width: 100%;
+z-index: 1000;
+position: absolute;
+bottom: 0;
+font-size: 75%;
+text-align: center;
+padding-top: 40px;
+color: #02a4f5;
+}

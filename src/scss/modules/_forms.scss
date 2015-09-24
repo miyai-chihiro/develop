@@ -1,0 +1,463 @@
+//
+// Forms
+// --------------------------------------------------
+
+
+// Normalize non-controls
+//
+// Restyle and baseline non-control form elements.
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: $line-height-computed / 2;
+  font-size: ceil($component-font-size-base * 1.571); // ~22px
+  line-height: inherit;
+  color: $legend-color;
+  border-bottom: none;
+}
+
+// Normalize form controls
+
+// Textarea
+textarea {
+  font-size: $component-font-size-base;
+  line-height: 24px;
+  padding: 5px 11px;
+}
+
+// Search
+input[type="search"] {
+  -webkit-appearance: none !important; // removes rounded corners for searchfields on iOS
+}
+
+// Label
+label {
+  color: $gray-light;
+  font-weight: normal;
+  font-size: floor($component-font-size-base*0.929); // 13px
+  line-height: 1;
+  margin-bottom: $s;
+}
+
+// Placeholder
+//
+// Placeholder text gets special styles because when browsers invalidate entire
+// lines if it doesn't understand a selector/
+.form-control {
+  @include placeholder(mix($gray-lighter, white, 75%));
+}
+
+// Common form controls
+//
+// Shared size and type resets for form controls. Apply `.form-control` to any
+// of the following form controls:
+//
+// select
+// textarea
+// input[type="text"]
+// input[type="password"]
+// input[type="datetime"]
+// input[type="datetime-local"]
+// input[type="date"]
+// input[type="month"]
+// input[type="time"]
+// input[type="week"]
+// input[type="number"]
+// input[type="email"]
+// input[type="url"]
+// input[type="search"]
+// input[type="tel"]
+// input[type="color"]
+
+.form-control {
+  border: 1px solid $input-border-color;
+  color: $gray;
+  font-family: $font-family-base;
+  font-size: $input-font-size-base;
+  line-height: $input-line-height-base;
+  padding: 8px 12px;
+  height: 44px;
+  -webkit-appearance: none;
+  border-radius: $input-border-radius;
+  @include box-shadow(none);
+  @include transition(.25s);
+
+  // margin-bottom: 17px;
+
+  // Customize the `:focus` state
+  @include form-control-focus();
+
+  &:focus {
+      & + .input-icon {
+        color: $brand-primary;
+      }
+      & + .form-count {
+        color: $brand-primary;
+      }
+    }
+
+  // Disabled and read-only inputs
+  // Note: HTML5 says that controls under a fieldset > legend:first-child won't
+  // be disabled if the fieldset is disabled. Due to implementation difficulty,
+  // we don't honor that edge case; we style them as disabled anyway.
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: $input-bg-disabled;
+    border-color: $input-bg-disabled;
+    color: $gray;
+    cursor: default;
+    @include opacity(.7);
+  }
+
+  // Flat (without border)
+  &.flat {
+    border-color: transparent;
+
+    &:hover {
+      border-color: $gray-subtle;
+    }
+    &:focus {
+      border-color: $brand-primary;
+    }
+  }
+}
+
+// Form control sizing
+.input-sm {
+  @include input-size($input-height-small, 6px, 10px, $input-font-size-small, $input-line-height-small);
+}
+
+.input-lg {
+  @include input-size($input-height-large, 10px, 15px, $input-font-size-large, $input-line-height-large);
+}
+
+.input-hg {
+  @include input-size($input-height-huge, 10px, 16px, $input-font-size-huge, $input-line-height-huge);
+}
+
+// Form control feedback states
+//
+// Apply contextual and semantic states to individual form controls.
+
+// Warning
+.has-warning {
+  @include form-control-validation($brand-warning, $brand-warning);
+}
+// Error
+.has-error {
+  @include form-control-validation($brand-danger, $brand-danger);
+}
+// Success
+.has-success {
+  @include form-control-validation($brand-success, $brand-success);
+}
+
+// Help text
+//
+// Apply to any element you wish to create light text for placement immediately
+// below a form control. Use for general help, formatting, or instructional text.
+
+p {
+  &.help-block,
+  &.form-error,
+  &.form-count {
+    color: $gray-lighter;
+    display: block;
+    font-size: floor($component-font-size-base*0.786);
+    height: 14px;
+    margin-top: 2px;
+    margin-bottom: 0;
+    // position: absolute;
+  }
+  &.form-error {
+    color: $brand-danger;
+  }
+  &.form-count {
+    right: 16px;
+    float: right;
+  }
+}
+
+// Form groups
+//
+// Designed to help with the organization and spacing of vertical forms. For
+// horizontal forms, use the predefined grid classes.
+
+.form-group {
+  position: relative;
+  // margin-top: 12px;
+  // margin-bottom: 17px;
+  margin-bottom: 13px;
+  &.required > label {
+    &:after {
+      content: "*";
+      color: $brand-danger;
+      margin-left: 2px;
+    }
+  }
+  &.required > .label-additional {
+    &:after {
+      content: "*";
+      color: $brand-danger;
+      margin-left: 2px;
+    }
+  }
+  &.required > label.radio-inline,
+  &.required > label.checkbox-inline {
+    &:after {
+      content: "";
+      margin-left: 0;
+    }
+  }
+}
+
+// Horizontal forms
+//
+// Horizontal forms are built on grid classes and allow you to create forms with
+// labels on the left and inputs on the right.
+
+.form-horizontal {
+
+  // Consistent vertical alignment of labels, radios, and checkboxes
+  .control-label,
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 6px;
+  }
+
+  // Make form groups behave like rows
+  .form-group {
+    @include make-row();
+  }
+
+  .form-control-static {
+    padding-top: 6px;
+  }
+}
+
+
+// Additional Label
+.label-additional {
+  display: block;
+  color: $gray-light;
+  font-weight: normal;
+  font-size: floor($component-font-size-base*0.929); // 13px
+  line-height: 1;
+  margin-bottom: $s;
+  &.text-primary {
+    color: $brand-primary;
+  }
+  &.text-info {
+    color: $brand-info;
+  }
+  &.text-warning {
+    color: $brand-warning;
+  }
+  &.text-danger {
+    color: $brand-danger;
+  }
+}
+
+// Form Inline
+.form-inline {
+  margin-top: 0;
+  margin-bottom: 13px;
+  margin-left: -16px;
+  margin-right: -16px;
+  .form-group {
+    margin-top: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+    &:not(:first-child) {
+      @media (min-width: $grid-float-breakpoint) {
+        margin-left: -16px;
+      }
+    }
+  }
+  .label-additional {
+    &+ .form-group {
+      @media (min-width: $grid-float-breakpoint) {
+        margin-left: 0px;
+      }
+    }
+  }
+  .form-control {
+    width: 100%;
+  }
+  // .form-control + .input-icon {
+  //   right: 1px;
+  // }
+  .label-additional,
+  .help-block {
+    margin-left: 16px;
+  }
+  &.required > .label-additional {
+    &:after {
+      content: "*";
+      color: $brand-danger;
+      margin-left: 2px;
+    }
+  }
+}
+.form-inline-text {
+  display: block;
+  font-size: floor($component-font-size-base*0.929); // 13px
+  text-align: center;
+  padding: 8px;
+  color: $gray-lighter;
+  @media (max-width: $grid-float-breakpoint) {
+    text-align: left;
+    padding: 2px 0 0;
+  }
+}
+
+// Submit
+.section-submit {
+  // padding-top: 32px;
+  // padding-bottom: 16px;
+  text-align: center;
+  .submit-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 6px 0;
+    border-color: transparent;
+    border-top-color: $gray-subtler;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+}
+
+.btn-filter-again {
+  display: none;
+  background: mix($gray-subtler, white, 90%);
+  button {
+    height: 80px;
+  }
+}
+
+
+/***************
+  new
+****************/
+.abui-label {
+  color: $gray-light;
+  font-weight: normal;
+  font-size: floor($component-font-size-base*0.929); // 13px
+}
+.required {
+  position: relative;
+}
+.required::after {
+    content: "*";
+    color: #f65a69;
+    margin-left: 2px;
+}
+.abui-input {
+  border: 1px solid $input-border-color;
+  color: $gray;
+  font-family: $font-family-base;
+  font-size: $input-font-size-base;
+  line-height: $input-line-height-base;
+  padding: 8px 12px;
+  width: 100%;
+  height: 44px;
+  border-radius: $input-border-radius;
+  background-color: #fff;
+  transition: 0.25s;
+
+  @include placeholder(mix($gray-lighter, white, 75%));
+
+  &:focus {
+    @include form-control-focus();
+    & + .icon-font {
+      color: $brand-primary;
+    }
+  }
+  &:disabled {
+    background-color: #ebedef;
+    border-color: #ebedef;
+    color: #52646c;
+    cursor: default;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+    opacity: 0.7;
+  }
+}
+//アイコンつき
+.icon-input {
+  position: relative;
+
+  .icon-font {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    line-height: 40px;
+    vertical-align: middle;
+    font-size: $input-icon-font-size;
+    color: $gray-subtle;
+    padding-right: 12px;
+    border-radius: $input-border-radius;
+  }
+}
+//接頭（接尾）つき
+.addon-input {
+  display: table;
+  width: 100%;
+
+  .addon-item,
+  .abui-input {
+    display: table-cell
+  }
+
+  .addon-item {
+    padding: 10px 12px;
+    font-size: floor($component-font-size-base*0.929);
+    color: $gray-lighter;
+    text-align: center;
+    border-radius: $border-radius-base;
+    transition: all 0.25s linear;
+  }
+}
+//注釈 (.help-block にあたる)
+.annotation-text {
+  color: $gray-lighter;
+  font-size: floor($component-font-size-base*0.786);
+  margin-top: 4px;
+}
+//字数カウント
+.counter-input {
+  .counter-item {
+    text-align: right;
+    font-size: floor($component-font-size-base*0.786);
+    color: $gray-lighter;
+  }
+  .abui-input:focus .counter-item {
+    color: $brand-primary;
+  }
+}
+//エラーフォーム
+.error-input {
+  color: $brand-danger;
+  border-color: $brand-danger;
+  @include placeholder($brand-danger);
+  &:focus {
+    border-color: $brand-danger;
+  }
+  & + .annotation-text,
+  & + .counter-item {
+    color: $brand-danger;
+  }
+}
+
+

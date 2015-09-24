@@ -1,0 +1,480 @@
+//
+// Buttons
+// --------------------------------------------------
+
+// Base styles
+// --------------------------------------------------
+.btn {
+  border: none;
+  font-size: $btn-font-size-base;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height-base;
+  border-radius: $border-radius-base;
+  padding: 12px 16px;
+  -webkit-font-smoothing: subpixel-antialiased;
+  //@include transition(.25s);
+
+
+  &:hover,
+  &:focus {
+    outline: none;
+    color: $btn-default-color;
+  }
+
+  &:active,
+  &.active {
+    outline: none;
+    //@include box-shadow(none);
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    background-color: $btn-link-disabled-color;
+    color: fade($btn-default-color, 75%);
+    //@include opacity(.7);
+  }
+
+  // Button icons
+  // --------------------------------------------------
+  > [class^="icon-abui-"] {
+    margin: 0 1px;
+    position: relative;
+    line-height: $btn-line-height-base;
+    top: 1px;
+  }
+  &.btn-hg {
+    > [class^="icon-abui-"] {
+      line-height: $btn-line-height-hg;
+    }
+  }
+  &.btn-lg {
+    > [class^="icon-abui-"] {
+      line-height: $btn-line-height-lg;
+    }
+  }
+  &.btn-sm {
+    > [class^="icon-abui-"] {
+      line-height: $btn-line-height-sm;
+    }
+  }
+  &.btn-xs {
+    > [class^="icon-abui-"] {
+      line-height: $btn-line-height-xs;
+    }
+  }
+
+}
+
+// Alternate buttons
+// --------------------------------------------------
+.btn-default {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-hover-bg, $btn-active-bg);
+}
+.btn-primary {
+  @include button-variant($btn-default-color, $brand-primary, $btn-primary-hover-bg, $btn-primary-active-bg);
+}
+.btn-info    {
+  @include button-variant($btn-default-color, $brand-info, $btn-info-hover-bg, $btn-info-active-bg);
+}
+.btn-danger  {
+  @include button-variant($btn-default-color, $brand-danger, $btn-danger-hover-bg, $btn-danger-active-bg);
+}
+.btn-success {
+  @include button-variant($btn-default-color, $brand-success, $btn-success-hover-bg, $btn-success-active-bg);
+}
+.btn-warning {
+  @include button-variant($btn-default-color, $brand-warning, $btn-warning-hover-bg, $btn-warning-active-bg);
+}
+.btn-inverse {
+  @include button-variant($gray-light, white, $btn-inverse-hover-bg, $btn-inverse-active-bg, white);
+  border: 1px solid $gray-light;
+  padding: 11px 15px;
+  &:hover,
+  &:focus {
+    border: 1px solid $btn-inverse-hover-bg;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      border-color: $gray-lighter;
+      color: $gray-lighter;
+    }
+  }
+}
+
+// Flat Button
+.btn-flat-default {
+  @include button-variant($btn-default-bg, transparent, $btn-flat-default-hover-bg, $btn-flat-default-active-bg, transparent);
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: $gray-light;
+    }
+  }
+}
+.btn-flat-primary {
+  @include button-variant($brand-primary, transparent, $btn-flat-primary-hover-bg, $btn-flat-primary-active-bg, transparent);
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: $gray-light;
+    }
+  }
+}
+.btn-flat-info {
+  @include button-variant($brand-info, transparent, $btn-flat-info-hover-bg, $btn-flat-info-active-bg, transparent);
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: $gray-light;
+    }
+  }
+}
+.btn-flat-danger {
+  @include button-variant($brand-danger, transparent, $btn-flat-danger-hover-bg, $btn-flat-danger-active-bg, transparent);
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: $gray-light;
+    }
+  }
+}
+.btn-flat-success {
+  @include button-variant($brand-success, transparent, $btn-flat-success-hover-bg, $btn-flat-success-active-bg, transparent);
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: $gray-light;
+    }
+  }
+}
+.btn-flat-warning {
+  @include button-variant($brand-warning, transparent, $btn-flat-warning-hover-bg, $btn-flat-warning-active-bg, transparent);
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: $gray-light;
+    }
+  }
+}
+
+// Hover Button
+.btn-hover-primary {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-primary-hover-bg, $btn-primary-active-bg);
+}
+.btn-hover-info    {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-info-hover-bg, $btn-info-active-bg);
+}
+.btn-hover-danger  {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-danger-hover-bg, $btn-danger-active-bg);
+}
+.btn-hover-success {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-success-hover-bg, $btn-success-active-bg);
+}
+.btn-hover-warning {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-warning-hover-bg, $btn-warning-active-bg);
+}
+
+// Inverse Hover Button
+.btn-inverse-hover-primary {
+  @include button-variant($gray-light, white, $btn-primary-hover-bg, $btn-primary-active-bg, white);
+  border: 1px solid $gray-light;
+  padding: 11px 15px;
+  &:hover,
+  &:focus {
+    color: white;
+    border: 1px solid $btn-primary-hover-bg;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      border-color: $gray-lighter;
+      color: $gray-lighter;
+    }
+  }
+}
+.btn-inverse-hover-info {
+  @include button-variant($gray-light, white, $btn-info-hover-bg, $btn-info-active-bg, white);
+  border: 1px solid $gray-light;
+  padding: 11px 15px;
+  &:hover,
+  &:focus {
+    color: white;
+    border: 1px solid $btn-info-hover-bg;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      border-color: $gray-lighter;
+      color: $gray-lighter;
+    }
+  }
+}
+.btn-inverse-hover-danger {
+  @include button-variant($gray-light, white, $btn-danger-hover-bg, $btn-danger-active-bg, white);
+  border: 1px solid $gray-light;
+  padding: 11px 15px;
+  &:hover,
+  &:focus {
+    color: white;
+    border: 1px solid $btn-danger-hover-bg;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      border-color: $gray-lighter;
+      color: $gray-lighter;
+    }
+  }
+}
+.btn-inverse-hover-success {
+  @include button-variant($gray-light, white, $btn-success-hover-bg, $btn-success-active-bg, white);
+  border: 1px solid $gray-light;
+  padding: 11px 15px;
+  &:hover,
+  &:focus {
+    color: white;
+    border: 1px solid $btn-success-hover-bg;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      border-color: $gray-lighter;
+      color: $gray-lighter;
+    }
+  }
+}
+.btn-inverse-hover-warning {
+  @include button-variant($gray-light, white, $btn-warning-hover-bg, $btn-warning-active-bg, white);
+  border: 1px solid $gray-light;
+  padding: 11px 15px;
+  &:hover,
+  &:focus {
+    color: white;
+    border: 1px solid $btn-warning-hover-bg;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      border-color: $gray-lighter;
+      color: $gray-lighter;
+    }
+  }
+}
+
+
+.btn-input {
+  @include button-variant($btn-default-color, white, $btn-input-hover-bg, $btn-input-active-bg,$input-bg-disabled);
+  border: 1px solid $input-border-color;
+  color: $gray;
+  padding: 11px 15px;
+  &:hover {
+    border: 1px solid $input-border-color;
+    color: $gray;
+  }
+  &:active,
+  &:focus {
+    border: 1px solid $brand-primary;
+    color: $gray;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: $gray;
+    }
+  }
+}
+
+
+.btn-embossed {
+  //@include box-shadow(inset 0 -2px 0 fade(black, 15%));
+
+  &.active,
+  &:active {
+    //@include box-shadow(inset 0 2px 0 fade(black, 15%));
+  }
+}
+.btn-wide {
+  min-width: 240px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+
+// Link buttons
+// -------------------------
+
+// Make a button look and behave like a link
+.btn-link {
+  color: $link-color;
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: underline;
+    background-color: transparent;
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      color: $btn-link-disabled-color;
+      text-decoration: none;
+    }
+  }
+}
+
+
+// Button sizes
+// --------------------------------------------------
+
+.btn-hg {
+  @include button-size(19px, 20px, $btn-font-size-hg, $btn-line-height-hg, $border-radius-base);
+}
+.btn-lg {
+  @include button-size(14px, 19px, $btn-font-size-lg, $btn-line-height-lg, $border-radius-base);
+}
+.btn-sm {
+  @include button-size(10px, 13px, $btn-font-size-sm, $btn-line-height-sm, $border-radius-base);
+}
+.btn-xs {
+  @include button-size(6px, 6px, $btn-font-size-xs, $btn-line-height-xs, $border-radius-base);
+}
+
+
+// Button tip
+// --------------------------------------------------
+.btn-tip {
+  font-weight: 300;
+  padding-left: 10px;
+  font-size: 92%;
+}
+
+
+// Block button
+// --------------------------------------------------
+
+.btn-block {
+  white-space: normal;
+}
+
+
+// Dropdown button
+// --------------------------------------------------
+
+.open {
+  > .dropdown-toggle {
+    &.btn-default {
+      color: $inverse;
+      background-color: $btn-hover-bg;
+    }
+    &.btn-primary {
+      background-color: $btn-primary-hover-bg;
+    }
+    &.btn-success {
+      background-color: $btn-success-hover-bg;
+    }
+    &.btn-info {
+      background-color: $btn-info-hover-bg;
+    }
+    &.btn-warning {
+      background-color: $btn-warning-hover-bg;
+    }
+    &.btn-danger {
+      background-color: $btn-danger-hover-bg;
+    }
+    .caret {
+      border-top-color: $brand-primary;
+    }
+  }
+}
+
+
+// Dropdown button
+// --------------------------------------------------
+
+button {
+  &.close {
+    //@include opacity(1);
+    color: $gray-lighter;
+    &:hover {
+      color: mix($gray-lighter, white, 70%);
+    }
+  }
+}
+
+
+
+// Buttons Row
+// --------------------------------------------------
+
+.btn-row {
+margin-top: 20px;
+}
+

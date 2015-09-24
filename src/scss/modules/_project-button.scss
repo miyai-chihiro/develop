@@ -1,0 +1,29 @@
+$btn-small: 140px;
+$btn-midium: 200px;
+$btn-large: 300px;
+
+.projects_button1--small {
+  @include button-variant($btn-default-color, $brand-primary, $btn-primary-hover-bg, $btn-primary-active-bg);
+  width: $btn-small;
+}
+.projects_button1--midium {
+  @include button-variant($btn-default-color, $brand-primary, $btn-primary-hover-bg, $btn-primary-active-bg);
+  width: $btn-midium;
+}
+.projects_button1--large {
+  @include button-variant($btn-default-color, $brand-primary, $btn-primary-hover-bg, $btn-primary-active-bg);
+  width: $btn-large;
+}
+
+.projects_button2--small {
+  @include button-variant($btn-default-color, $brand-danger, $btn-danger-hover-bg, $btn-danger-active-bg);
+  width: $btn-small;
+}
+.projects_button2--midium {
+  @include button-variant($btn-default-color, $brand-danger, $btn-danger-hover-bg, $btn-danger-active-bg);
+  width: $btn-midium;
+}
+.projects_button2--large {
+  @include button-variant($btn-default-color, $brand-danger, $btn-danger-hover-bg, $btn-danger-active-bg);
+  width: $btn-large;
+}

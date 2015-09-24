@@ -1,0 +1,330 @@
+//
+// Glyphicons
+// --------------------------------------------------
+
+$icon-font-path:            "../fonts/";
+$icon-font-name:            "abui-icons-regular";
+// $icon-font-svg-id:          "abui-icons-regular";
+
+
+@font-face {
+  font-family: 'ABUI-icons';
+  src: url($icon-font-path + $icon-font-name + '.eot');
+  src: url($icon-font-path + $icon-font-name + '.eot?#iefix') format('embedded-opentype'),
+       url($icon-font-path + $icon-font-name + '.woff') format('woff'),
+       url($icon-font-path + $icon-font-name + '.ttf') format('truetype'),
+       // url($icon-font-path + $icon-font-name + '.svg#' + $icon-font-svg-id) format('svg');
+       url($icon-font-path + $icon-font-name + '.svg#') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'ABUI-icons';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-abui-"] {
+*/
+// .icon-abui-arrow-right, .icon-abui-arrow-left, .icon-abui-cmd, .icon-abui-check-inverted, .icon-abui-heart, .icon-abui-location, .icon-abui-plus, .icon-abui-check, .icon-abui-cross, .icon-abui-list, .icon-abui-new, .icon-abui-video, .icon-abui-photo, .icon-abui-volume, .icon-abui-time, .icon-abui-eye, .icon-abui-chat, .icon-abui-search, .icon-abui-user, .icon-abui-mail, .icon-abui-lock, .icon-abui-gear, .icon-abui-radio-unchecked, .icon-abui-radio-checked, .icon-abui-checkbox-unchecked, .icon-abui-checkbox-checked, .icon-abui-calendar-solid, .icon-abui-pause, .icon-abui-play, .icon-abui-check-inverted-2 {
+//   display: inline-block;
+//   font-family: 'abui-icons';
+//   speak: none;
+//   font-style: normal;
+//   font-weight: normal;
+//   font-variant: normal;
+//   text-transform: none;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+
+[class^="icon-abui-"], [class*=" icon-abui-"] {
+  font-family: 'ABUI-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-abui-plus:before {
+  content: "\2b";
+}
+
+.icon-abui-pencil:before {
+  content: "\270f";
+}
+
+.icon-abui-pen:before {
+  content: "\e065";
+}
+
+.icon-abui-mail:before {
+  content: "\2709";
+}
+
+.icon-abui-search:before {
+  content: "\e003";
+}
+
+.icon-abui-heart:before {
+  content: "\e005";
+}
+
+.icon-abui-star:before {
+  content: "\e006";
+}
+
+.icon-abui-bookmark:before {
+  content: "\e044";
+}
+
+.icon-abui-user:before {
+  content: "\e008";
+}
+
+.icon-abui-matrix:before {
+  content: "\e011";
+}
+
+.icon-abui-check:before {
+  content: "\e013";
+}
+
+.icon-abui-cross:before {
+  content: "\e014";
+}
+
+.icon-abui-zoomin:before {
+  content: "\e015";
+}
+
+.icon-abui-zoomout:before {
+  content: "\e016";
+}
+
+.icon-abui-gear:before {
+  content: "\e019";
+}
+
+.icon-abui-gear-alt:before {
+  content: "\e136";
+}
+
+.icon-abui-home:before {
+  content: "\e021";
+}
+
+.icon-abui-file:before {
+  content: "\e022";
+}
+
+.icon-abui-time:before {
+  content: "\e023";
+}
+
+.icon-abui-data:before {
+  content: "\e025";
+}
+
+.icon-abui-download:before {
+  content: "\e026";
+}
+
+.icon-abui-upload:before {
+  content: "\e027";
+}
+
+.icon-abui-reload:before {
+  content: "\e031";
+}
+
+.icon-abui-lock:before {
+  content: "\e033";
+}
+
+.icon-abui-volume:before {
+  content: "\e038";
+}
+
+.icon-abui-addressbook:before {
+  content: "\e043";
+}
+
+.icon-abui-photo:before {
+  content: "\e046";
+}
+
+.icon-abui-list:before {
+  content: "\e056";
+}
+
+.icon-abui-video:before {
+  content: "\e059";
+}
+
+.icon-abui-location:before {
+  content: "\e062";
+}
+
+.icon-abui-play:before {
+  content: "\e072";
+}
+
+.icon-abui-pause:before {
+  content: "\e073";
+}
+
+.icon-abui-arrow-left:before {
+  content: "\e079";
+}
+
+.icon-abui-arrow-right:before {
+  content: "\e080";
+}
+
+.icon-abui-arrow-up:before {
+  content: "\e113";
+}
+
+.icon-abui-arrow-down:before {
+  content: "\e114";
+}
+
+.icon-abui-check-inverted:before {
+  content: "\e084";
+}
+
+.icon-abui-guide:before {
+  content: "\e085";
+}
+
+.icon-abui-info:before {
+  content: "\e086";
+}
+
+.icon-abui-allert:before {
+  content: "\e101";
+}
+
+.icon-abui-maximize:before {
+  content: "\e140";
+}
+
+.icon-abui-minimize:before {
+  content: "\e601";
+}
+
+.icon-abui-expand:before {
+  content: "\e096";
+}
+
+.icon-abui-contract:before {
+  content: "\e097";
+}
+
+.icon-abui-currentlocaiton:before {
+  content: "\e103";
+}
+
+.icon-abui-eye:before {
+  content: "\e105";
+}
+
+.icon-abui-calendar-solid:before {
+  content: "\e109";
+}
+
+.icon-abui-chat:before {
+  content: "\e111";
+}
+
+.icon-abui-threedots:before {
+  content: "\e112";
+}
+
+.icon-abui-folder:before {
+  content: "\e117";
+}
+
+.icon-abui-bullhorn:before {
+  content: "\e122";
+}
+
+.icon-abui-clip:before {
+  content: "\e142";
+}
+
+.icon-abui-radio-unchecked:before {
+  content: "\10ffff";
+}
+
+.icon-abui-radio-checked:before {
+  content: "\e149";
+}
+
+.icon-abui-checkbox-unchecked:before {
+  content: "\e157";
+}
+
+.icon-abui-checkbox-checked:before {
+  content: "\e067";
+}
+
+.icon-abui-card:before {
+  content: "\e177";
+}
+
+.icon-abui-organization:before {
+  content: "\e180";
+}
+
+.icon-abui-map:before {
+  content: "\e184";
+}
+
+.icon-abui-linechart:before {
+  content: "\e185";
+}
+
+.icon-abui-clipboard:before {
+  content: "\e205";
+}
+
+.icon-abui-bell:before {
+  content: "\e213";
+}
+
+.icon-abui-smile:before {
+  content: "\e240";
+}
+
+.icon-abui-microphone:before {
+  content: "\e600";
+}
+
+.icon-abui-astrolablogo-mark:before {
+  content: "\e199";
+}
+
+.icon-abui-astrolablogo-type:before {
+  content: "\e200";
+}

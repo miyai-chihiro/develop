@@ -1,0 +1,43 @@
+//
+// Mark
+// --------------------------------------------------
+
+.label {
+	display: inline;
+	padding: .2em .5em .3em;
+	font-size: 70%;
+	font-weight: bold;
+	line-height: 1;
+	color: $inverse;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	@include border-radius($border-radius-small);
+	margin-left: $x + $x/2;
+	margin-right: $x + $x/2;
+	&.label-default {
+		background-color: $gray-light;
+	}
+	&.label-primary {
+		background-color: $brand-primary;
+	}
+	&.label-success {
+		background-color: $brand-success;
+	}
+	&.label-info {
+		background-color: $brand-info;
+	}
+	&.label-warning {
+		background-color: $brand-warning;
+	}
+	&.label-danger {
+		background-color: $brand-danger;
+	}
+}
+
+.label-before {
+	margin-left: 0;
+}
+.label-middle {
+	margin-right: $x + $x/2;
+}

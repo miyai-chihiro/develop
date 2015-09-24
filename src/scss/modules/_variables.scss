@@ -1,0 +1,613 @@
+//
+// Variables
+// --------------------------------------------------
+
+// == Colors
+//
+//##
+
+// Color swatches
+$astro-blue:                #02a4f5;
+$turquoise:                 #13bdaf;
+$olive:                     #bfcf17;
+$orange:                    #ffac36;
+$rose:                      #f65a69;
+$violet:                    #8a73d7;
+
+
+// $gray-darker:               #161b1e;
+// $gray-dark:                 #323e43;
+// $gray:                      #54666f;
+// $gray-light:                #92a4ad;
+// $gray-lighter:              #bac6cb;
+// $gray-subtle:               #e1e6e9;
+// $gray-subtler:              #f0f3f4;
+
+$gray-darker:               #161b1e;
+$gray-dark:                 #313d42;
+$gray:                      #52646c;
+$gray-light:                #8ea0a9;
+$gray-lighter:              #b5c1c6;
+$gray-subtle:               #dbe0e3;
+$gray-subtler:              #edf0f1;
+
+
+$inverse:                   white;
+
+// Brand colors
+$brand-primary:             $astro-blue;
+$brand-secondary:           $astro-blue;
+$brand-success:             $astro-blue;
+$brand-warning:             $olive;
+$brand-danger:              $rose;
+$brand-info:                $turquoise;
+
+$brand-additional1:         $orange;
+$brand-additional2:         $violet;
+
+
+//== Image
+$image-path:               "../images/";
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+$body-bg:                   #fff;
+$text-color:                $gray-dark;
+
+//** Global textual link color.
+$link-color:                $brand-primary;
+$link-hover-color:          lighten($brand-primary, 10%);
+
+
+//== Typography
+//
+//## Font, line-height for body text, headings, and more.
+
+$font-family-base:          "Lato","mplus-2p-regular", "メイリオ", "ＭＳ Ｐゴシック", sans-serif;
+$font-family-demo:          "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-monospace:     Monaco, Menlo, Consolas, "Courier New", monospace;
+$font-size-base:            16px;
+
+// $local-font-path:               "../fonts/lato/";
+// $local-font-name:               "lato-regular";
+// $local-font-svg-id:             "latoregular";
+// $local-font-name-light:         "lato-light";
+// $local-font-svg-id-light:       "latolight";
+// $local-font-name-black:         "lato-black";
+// $local-font-svg-id-black:       "latoblack";
+// $local-font-name-bold:          "lato-bold";
+// $local-font-svg-id-bold:        "latobold";
+// $local-font-name-italic:        "lato-italic";
+// $local-font-svg-id-italic:      "latoitalic";
+// $local-font-name-bold-italic:   "lato-bolditalic";
+// $local-font-svg-id-bold-italic: "latobold-italic";
+
+$font-size-h1:              floor($font-size-base * 3.5); // ~56px
+$font-size-h2:              ceil($font-size-base * 2.812); // ~45px
+$font-size-h3:              ceil($font-size-base * 2.125); // ~34px
+$font-size-h4:              ceil($font-size-base * 1.5); // ~24px
+$font-size-h5:              floor($font-size-base * 1.25); // ~20px
+$font-size-h6:              ceil($font-size-base * 1); // ~16px
+
+$line-height-base:          1.75; // 28/16
+$line-height-computed:      floor($font-size-base * $line-height-base); // ~28px
+
+$headings-font-family:      inherit;
+$headings-font-weight:      700;
+$headings-line-height:      1.1;
+$headings-color:            inherit;
+
+
+//== Iconography
+//
+//## Specify custom locations of the include Glyphicons icon font.
+
+// $icon-font-path:            "../fonts/";
+// $icon-font-name:            "flat-ui-icons-regular";
+// $icon-font-svg-id:          "Flat-UI-Icons";
+
+//** Icon sizes for use in components
+$icon-normal:               16px;
+$icon-medium:               18px;
+$icon-large:                32px;
+
+
+//== Components
+//
+//## Define common padding and border radius sizes and more.
+
+//** Default font-size in components
+$component-font-size-base:  ceil($font-size-base * 0.833); // ~14px
+
+// Border-radius
+$border-radius-base:        2px;
+$border-radius-large:       3px;
+$border-radius-small:       1px;
+
+
+//== Buttons
+//
+//## For each of Flat UI's buttons, define text, background, font size and height.
+
+$btn-font-size-base:         $component-font-size-base;
+$btn-font-size-xs:           ceil($component-font-size-base * 0.785);   // ~11px
+$btn-font-size-sm:           ceil($component-font-size-base * 0.857); // ~12px
+$btn-font-size-lg:           ceil($component-font-size-base * 1.142);  // ~16px
+$btn-font-size-hg:           ceil($component-font-size-base * 1.428); // ~20px
+
+$btn-line-height-base:       1.429;   // ~20px
+$btn-line-height-hg:         1.3; // ~26px
+$btn-line-height-lg:         1.438; // ~23px
+$btn-line-height-sm:         1.34; // ~16px
+$btn-line-height-xs:         1.090; // ~12px
+
+$btn-social-font-size-base:   ceil($component-font-size-base * 0.857); // ~12px
+$btn-social-line-height-base: 1.083;  // ~13px
+
+$btn-font-weight:            normal;
+
+$btn-default-color:          $inverse;
+$btn-default-bg:             $gray-light;
+$btn-hover-bg:               mix($gray-light, white, 80%);
+$btn-active-bg:              mix($gray-light, black, 85%);
+
+$btn-primary-hover-bg:       mix($brand-primary, white, 80%);
+$btn-primary-active-bg:      saturate(mix($brand-primary, black, 90%), 20%);
+
+$btn-info-hover-bg:          mix($brand-info, white, 80%);
+$btn-info-active-bg:         saturate(mix($brand-info, black, 85%), 20%);
+
+$btn-success-hover-bg:       mix($brand-success, white, 80%);
+$btn-success-active-bg:      saturate(mix($brand-success, black, 85%), 20%);
+
+$btn-danger-hover-bg:        mix($brand-danger, white, 80%);
+$btn-danger-active-bg:       saturate(mix($brand-danger, black, 85%), 20%);
+
+$btn-warning-hover-bg:       mix($brand-warning, white, 80%);
+$btn-warning-active-bg:      saturate(mix($brand-warning, black, 85%), 20%);
+
+$btn-inverse-hover-bg:       mix($gray-subtle, white, 80%);
+$btn-inverse-active-bg:      $gray-lighter;
+
+$btn-flat-default-hover-bg:       mix($gray-subtle, white, 80%);
+$btn-flat-default-active-bg:      $gray-lighter;
+
+$btn-flat-primary-hover-bg:       mix($brand-primary, white, 10%);
+$btn-flat-primary-active-bg:      mix($brand-primary, white, 20%);
+
+$btn-flat-info-hover-bg:       mix($brand-info, white, 10%);
+$btn-flat-info-active-bg:      mix($brand-info, white, 20%);
+
+$btn-flat-success-hover-bg:       mix($brand-success, white, 10%);
+$btn-flat-success-active-bg:      mix($brand-success, white, 20%);
+
+$btn-flat-danger-hover-bg:       mix($brand-danger, white, 10%);
+$btn-flat-danger-active-bg:      mix($brand-danger, white, 20%);
+
+$btn-flat-warning-hover-bg:       mix($brand-warning, white, 10%);
+$btn-flat-warning-active-bg:      mix($brand-warning, white, 20%);
+
+$btn-input-hover-bg:       mix($gray-subtle, white, 10%);
+$btn-input-active-bg:       white;
+
+$btn-link-disabled-color:    $gray-subtle;
+
+
+//== Forms
+//
+//##
+
+$input-font-size-base:      $component-font-size-base;
+$input-font-size-small:     ceil($component-font-size-base * 0.857); // ~12px
+$input-font-size-large:     ceil($component-font-size-base * 1); // ~16px
+$input-font-size-huge:      ceil($component-font-size-base * 1.428); // ~20px
+
+$input-line-height-base:    1.429; // ~20px
+$input-line-height-small:   1.417; // ~17px
+$input-line-height-large:   1.25; // ~20px
+$input-line-height-huge:    1.3; // ~26px
+
+$input-icon-font-size:      ceil($component-font-size-base * 1.285);  // ~18px
+
+$input-bg:                  white;
+$input-bg-disabled:         mix($gray-subtle, white, 55%);
+
+$input-height-small:        36px;
+$input-height-base:         44px;
+$input-height-large:        52px;
+$input-height-huge:         64px;
+
+$input-border-radius:       $border-radius-base;
+
+$legend-color:              inherit;
+
+$input-border-color:        $gray-subtle;
+
+
+// //== Forms
+// //
+// //##
+
+// $input-font-size-base:      $component-font-size-base;
+// $input-font-size-small:     floor($component-font-size-base * 0.867); // ~13px
+// $input-font-size-large:     ceil($component-font-size-base * 1.133); // ~17px
+// $input-font-size-huge:      floor($component-font-size-base * 1.467); // ~22px
+
+// $input-line-height-base:    1.467; // ~22px
+// $input-line-height-small:   1.462; // ~19px
+// $input-line-height-large:   1.235; // ~21px
+// $input-line-height-huge:    1.318; // ~29px
+
+// $input-icon-font-size:      ceil($component-font-size-base * 1.333);  // ~20px
+
+// $input-bg:                  $inverse;
+// $input-bg-disabled:         mix($gray, white, 10%);
+
+// $input-height-small:        35px;
+// $input-height-base:         41px;
+// $input-height-large:        45px;
+// $input-height-huge:         53px;
+
+// $input-border-radius:       $border-radius-base;
+
+// $legend-color:              inherit;
+
+
+//== Pagination
+//
+//##
+
+$pagination-color:           rgba($brand-primary, 0%);
+
+
+//== Pager
+//
+//##
+
+$pager-padding:              12px 16px 13px;
+
+//== Dropdown Menu
+//
+//##
+
+$dropdown-bg:                         mix($gray-subtler, white, 60%);
+$dropdown-inverse-bg:                 $gray-light;
+$dropdown-inverse-divider:            $gray-lighter;
+$dropdown-inverse-link-hover-bg:      $gray-lighter;
+$dropdown-inverse-link-color:         $gray-subtler;
+
+
+//== Navbar
+//
+//##
+
+// Basics of a navbar
+$zindex-navbar:              1000;
+$zindex-navbar-fixed:        1030;
+$navbar-height-base:         48px;
+$navbar-height-large:        60px;
+$navbar-input-line-height:   1.4; // ~21px
+$navbar-margin-bottom:       $line-height-computed;
+$navbar-border-radius:       0;
+
+$navbar-default-bg:          mix($gray-subtle, white, 80%);
+
+// Navbar links
+$navbar-default-link-color:           $gray;
+$navbar-default-link-hover-color:     $brand-primary;
+$navbar-default-link-hover-bg:        transparent;
+$navbar-default-link-active-color:    $gray-light;
+$navbar-default-link-active-bg:       transparent;
+$navbar-default-link-disabled-color:  #ccc;
+$navbar-default-link-disabled-bg:     transparent;
+
+// Navbar nav carets
+$navbar-default-caret-color:          $gray-lighter;
+$navbar-default-caret-hover-color:    $navbar-default-link-hover-color;
+$navbar-default-caret-active-color:   $navbar-default-link-active-color;
+
+// Navbar brand label
+$navbar-default-brand-color:          $navbar-default-link-color;
+$navbar-default-brand-hover-color:    $navbar-default-link-hover-color;
+$navbar-default-brand-hover-bg:       transparent;
+
+// Navbar toggle
+$navbar-default-toggle-color:         $navbar-default-link-color;
+$navbar-default-toggle-hover-color:   $navbar-default-link-hover-color;
+
+// Navbar form
+$navbar-default-form-placeholder:     spin(tint($brand-primary, 60%), 2);
+$navbar-default-form-icon:            $gray-subtle;
+$navbar-default-form-border:          shade($navbar-default-bg, 3%);
+
+
+// Reset inverted navbar basics
+$navbar-inverse-color:                $inverse;
+$navbar-inverse-bg:                   $brand-primary;
+$navbar-inverse-border:               darken($navbar-inverse-bg, 10%);
+
+// Inverted navbar
+// Reset inverted navbar basics
+$navbar-inverse-divider:              darken($navbar-inverse-bg, 3%);
+
+// Inverted navbar links
+$navbar-inverse-link-color:           mix($navbar-inverse-bg, white, 50%);
+$navbar-inverse-link-hover-color:     mix($navbar-inverse-bg, white, 30%);
+$navbar-inverse-link-hover-bg:        transparent;
+$navbar-inverse-link-active-color:    $navbar-inverse-link-color;
+$navbar-inverse-link-active-bg:       darken($navbar-inverse-bg, 5%);
+$navbar-inverse-link-disabled-color:  #444;
+$navbar-inverse-link-disabled-bg:     transparent;
+
+// Navbar nav carets
+$navbar-inverse-caret-color:          lighten(desaturate($navbar-inverse-bg, 7%), 20%);
+$navbar-inverse-caret-hover-color:    $navbar-inverse-link-hover-color;
+$navbar-inverse-caret-active-color:   $navbar-inverse-link-active-color;
+
+// Inverted navbar brand label
+$navbar-inverse-brand-color:          $inverse;
+$navbar-inverse-brand-hover-color:    $navbar-inverse-link-hover-color;
+$navbar-inverse-brand-hover-bg:       transparent;
+
+// Inverted navbar toggle
+$navbar-inverse-toggle-color:         $navbar-inverse-link-color;
+$navbar-inverse-toggle-hover-color:   $navbar-inverse-link-hover-color;
+
+// Navbar form
+$navbar-inverse-form-bg:              darken($navbar-inverse-bg, 6%);
+$navbar-inverse-form-placeholder:     desaturate(lighten($navbar-inverse-bg, 13%), 7%);
+$navbar-inverse-form-icon:            desaturate(lighten($navbar-inverse-bg, 13%), 6%);
+$navbar-inverse-form-border:          $navbar-inverse-divider;
+
+// Dropdown menu
+$navbar-inverse-dropdown-arrow:             $navbar-inverse-bg;
+$navbar-inverse-dropdown-bg:                $dropdown-inverse-bg;
+$navbar-inverse-dropdown-link-color:        $dropdown-inverse-link-color;
+$navbar-inverse-dropdown-link-hover-color:  $inverse;
+$navbar-inverse-dropdown-link-hover-bg:     $dropdown-inverse-link-hover-bg;
+
+
+
+//== Iconbar
+//
+//##
+
+// $iconbar-background:         mix($brand-primary, black, 85%);
+
+
+//== Progress bars
+//
+//##
+
+$progress-height:            4px;
+
+
+//== Slider
+//
+//##
+
+$slider-height:              4px;
+$slider-value-font-size:     floor($component-font-size-base * 0.867); // ~13px;
+
+$slider-handle-bg:           $brand-primary;
+$slider-handle-hover-bg:     mix($brand-primary, white, 80%);
+$slider-handle-active-bg:    saturate(mix($brand-primary, black, 90%), 20%);
+
+$slider-range-bg:            $brand-primary;
+
+$slider-segment-bg:          $gray-lighter;
+
+
+//== Switch
+//
+//##
+
+$switch-border-radius:       30px;
+$switch-width:               80px;
+
+
+//== Thumbnails
+//
+//##
+
+//** Padding around the thumbnail image
+$thumbnail-padding:           4px;
+//** Thumbnail background color
+$thumbnail-bg:                $body-bg;
+//** Thumbnail border color
+$thumbnail-border:            $gray-light;
+//** Thumbnail border radius
+$thumbnail-border-radius:     $border-radius-base;
+
+//** Custom text color for thumbnail captions
+$thumbnail-caption-color:     $text-color;
+//** Padding around the thumbnail caption
+$thumbnail-caption-padding:   9px;
+
+
+//== Tables
+//
+//##
+
+$table-cell-padding:					8px;
+$table-border-color:					$gray-subtle;
+$table-border-th-color:				white;
+$table-condensed-cell-padding:2px;
+$table-bg-th:									$gray-subtle;
+$table-bg-th-emphasis:				darken($table-bg-th, 5%);
+$table-bg-accent:							mix($gray-subtler, white, 50%);
+$table-bg-hover:							mix($brand-primary, white, 8%);
+$table-bg-active:							$brand-primary;
+$table-state-success-bg:			mix($brand-primary, white, 16%);
+$table-state-info-bg:					mix($brand-info, white, 16%);
+$table-state-warning-bg:			mix($brand-warning, white, 16%);
+$table-state-danger-bg:				mix($brand-danger, white, 16%);
+
+
+
+
+
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phonepadding: 12px 16px;
+$screen-xs-min:               480px;
+
+// Small screen / tablet
+$screen-sm-min:               768px;
+
+// Medium screen / desktop
+$screen-md-min:               992px;
+
+// Large screen / wide desktop
+$screen-lg-min:               1200px;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:               ($screen-sm-min - 1);
+$screen-sm-max:               ($screen-md-min - 1);
+$screen-md-max:               ($screen-lg-min - 1);
+
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Number of columns in the grid.
+$grid-columns:                12;
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:           30px;
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+$grid-float-breakpoint:       $screen-sm-min;
+//** Point at which the navbar begins collapsing.
+$grid-float-breakpoint-max:   ($grid-float-breakpoint - 1);
+
+// Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+
+$state-success-text:          $brand-success;
+$state-success-bg:            mix($brand-primary, white, 16%);
+$state-success-border:        darken($state-success-bg, 5%);
+
+$state-info-text:             $brand-info;
+$state-info-bg:               mix($brand-info, white, 16%);
+$state-info-border:           darken($state-info-bg, 7%);
+
+$state-warning-text:          $brand-warning;
+$state-warning-bg:            mix($brand-warning, white, 16%);
+$state-warning-border:        darken($state-warning-bg, 5%);
+
+$state-danger-text:           $brand-danger;
+$state-danger-bg:             mix($brand-danger, white, 16%);
+$state-danger-border:         darken($state-danger-bg, 5%);
+
+
+
+// Code
+//
+//##
+
+$code-color:                  #c7254e;
+$code-bg:                     #f9f2f4;
+
+$kbd-color:                   $inverse;
+$kbd-bg:                      $brand-primary;
+
+$pre-bg:                      mix($gray-subtler, white, 30%);
+$pre-color:                   inherit;
+$pre-border-color:            $gray-subtler;
+$pre-scrollable-max-height:   340px;
+$pre-border-radius:           $border-radius-base;
+
+
+// Type
+//
+//##
+
+//** Text muted color
+$text-muted:                  $gray-light;
+//** Abbreviations and acronyms border color
+$abbr-border-color:           $gray-light;
+//** Headings small color
+$headings-small-color:        mix($brand-primary, $inverse, 12%);
+//** Blockquote small color
+$blockquote-small-color:      inherit;
+//** Blockquote border color
+$blockquote-border-color:     $gray-subtle;
+//** Page header border color
+$page-header-border-color:    mix($brand-primary, $inverse, 12%);
+
+
+// Miscellaneous
+//
+//##
+
+//** Hr border color
+$hr-border:                   mix($brand-primary, $inverse, 63%);
+
+//** Horizontal forms & lists
+$component-offset-horizontal: 180px;
+
+
+// Sidebar
+//
+//##
+
+$sidebar-width: 180px;
+$sidebar-bg:    $gray;
+
+
+// Panels
+//
+//##
+
+$panel-bg:                    white;
+$panel-footer-bg:             $gray-subtler;
+$panel-body-padding:          24px;
+$panel-heading-padding:       24px;
+$panel-footer-padding:        16px;
+$panel-inner-border:          $gray-subtler;
+
+$panel-default-border:        $gray-subtle;
+$panel-default-text:          $gray-dark;
+
+
+// Alert
+//
+//##
+
+$alert-padding:               24px;
+$alert-border-radius:         $border-radius-base;
+$alert-link-font-weight:      700;
+
+$alert-default-bg:            $gray-dark;
+$alert-default-border:        $gray-dark;
+$alert-default-text:          $inverse;
+
+$alert-primary-bg:            $brand-primary;
+$alert-primary-border:        $brand-primary;
+$alert-primary-text:          $inverse;
+
+$alert-success-bg:            $brand-primary;
+$alert-success-border:        $brand-primary;
+$alert-success-text:          $inverse;
+
+$alert-info-bg:               $brand-info;
+$alert-info-border:           $brand-info;
+$alert-info-text:             $inverse;
+
+$alert-warning-bg:            $brand-warning;
+$alert-warning-border:        $brand-warning;
+$alert-warning-text:          $inverse;
+
+$alert-danger-bg:             $brand-danger;
+$alert-danger-border:         $brand-danger;
+$alert-danger-text:           $inverse;
+
+

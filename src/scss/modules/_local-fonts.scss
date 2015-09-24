@@ -1,0 +1,103 @@
+//
+// Local Fonts
+// --------------------------------------------------
+
+$local-font-j-path:               "../fonts/mplus/";
+$local-font-j-name-regular:       "mplus-2p-regular";
+$local-font-j-name-bold:          "mplus-2p-bold";
+
+$local-font-e-path:               "../fonts/lato/";
+$local-font-e-name:               "lato-regular";
+$local-font-e-svg-id:             "latoregular";
+$local-font-e-name-light:         "lato-light";
+$local-font-e-svg-id-light:       "latolight";
+$local-font-e-name-black:         "lato-black";
+$local-font-e-svg-id-black:       "latoblack";
+$local-font-e-name-bold:          "lato-bold";
+$local-font-e-svg-id-bold:        "latobold";
+$local-font-e-name-italic:        "lato-italic";
+$local-font-e-svg-id-italic:      "latoitalic";
+$local-font-e-name-bold-italic:   "lato-bolditalic";
+$local-font-e-svg-id-bold-italic: "latobold-italic";
+
+// Japanese Characters
+@font-face {
+font-family: mplus-2p-regular;
+src: url($local-font-j-path + $local-font-j-name-regular +'.ttf')
+     format("truetype");
+font-weight: normal;
+}
+
+@font-face {
+font-family: mplus-2p-bold;
+src: url($local-font-j-path + $local-font-j-name-bold +'.ttf')
+     format("truetype");
+font-weight:bold;
+}
+
+// Alphanumeric Characters
+@font-face {
+  font-family: 'Lato';
+  src: url($local-font-e-path + $local-font-e-name-black +'.eot');
+  src: url($local-font-e-path + $local-font-e-name-black +'.eot?#iefix') format('embedded-opentype'),
+       url($local-font-e-path + $local-font-e-name-black +'.woff') format('woff'),
+       url($local-font-e-path + $local-font-e-name-black +'.ttf') format('truetype'),
+       url($local-font-e-path + $local-font-e-name-black +'.svg#' + $local-font-e-svg-id-black) format('svg');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url($local-font-e-path + $local-font-e-name-bold +'.eot');
+  src: url($local-font-e-path + $local-font-e-name-bold +'.eot?#iefix') format('embedded-opentype'),
+       url($local-font-e-path + $local-font-e-name-bold +'.woff') format('woff'),
+       url($local-font-e-path + $local-font-e-name-bold +'.ttf') format('truetype'),
+       url($local-font-e-path + $local-font-e-name-bold +'.svg#' + $local-font-e-svg-id-bold) format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url($local-font-e-path + $local-font-e-name-bold-italic +'.eot');
+  src: url($local-font-e-path + $local-font-e-name-bold-italic +'.eot?#iefix') format('embedded-opentype'),
+       url($local-font-e-path + $local-font-e-name-bold-italic +'.woff') format('woff'),
+       url($local-font-e-path + $local-font-e-name-bold-italic +'.ttf') format('truetype'),
+       url($local-font-e-path + $local-font-e-name-bold-italic +'.svg#' + $local-font-e-svg-id-bold-italic) format('svg');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url($local-font-e-path + $local-font-e-name-italic +'.eot');
+  src: url($local-font-e-path + $local-font-e-name-italic +'.eot?#iefix') format('embedded-opentype'),
+       url($local-font-e-path + $local-font-e-name-italic +'.woff') format('woff'),
+       url($local-font-e-path + $local-font-e-name-italic +'.ttf') format('truetype'),
+       url($local-font-e-path + $local-font-e-name-italic +'.svg#' + $local-font-e-svg-id-italic) format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url($local-font-e-path + $local-font-e-name-light +'.eot');
+  src: url($local-font-e-path + $local-font-e-name-light +'.eot?#iefix') format('embedded-opentype'),
+       url($local-font-e-path + $local-font-e-name-light +'.woff') format('woff'),
+       url($local-font-e-path + $local-font-e-name-light +'.ttf') format('truetype'),
+       url($local-font-e-path + $local-font-e-name-light +'.svg#' + $local-font-e-svg-id-light) format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url($local-font-e-path + $local-font-e-name +'.eot');
+  src: url($local-font-e-path + $local-font-e-name +'.eot?#iefix') format('embedded-opentype'),
+       url($local-font-e-path + $local-font-e-name +'.woff') format('woff'),
+       url($local-font-e-path + $local-font-e-name +'.ttf') format('truetype'),
+       url($local-font-e-path + $local-font-e-name +'.svg#' + $local-font-e-svg-id) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,129 @@
+//
+// Sidebar
+// --------------------------------------------------
+
+
+.sidebar {
+  position: fixed;
+  z-index: 3000;
+  background-color: $sidebar-bg;
+  width: $sidebar-width;
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 32px;
+
+  .category {
+    font-size: floor($component-font-size-base*0.929); //13px
+    color: $gray-lighter;
+    padding-left: 16px;
+    padding-top: 16px;
+    margin-bottom:8px;
+  }
+  .divider {
+    border-top: 1px solid mix($gray-dark, $sidebar-bg, 35%);
+  }
+  ul {
+    list-style: none;
+    font-size: $component-font-size-base;
+    padding:0;
+    li {
+      color: $gray-subtler;
+      a,
+      span {
+        display: block;
+        padding: 13px 16px;
+        line-height: 1.3;
+      }
+      a {
+        cursor: pointer;
+        &:link,
+        &:visited {
+          color: $gray-subtler;
+        }
+        &:hover,
+        &:active,
+        &:focus {
+          color: white;
+          background-color: $gray-light;
+        }
+      }
+      span {
+        &.expander {
+          width: 44px;
+          height: 44px;
+          padding: 18px 16px;
+          position: absolute;
+          right: 0;
+          cursor: pointer;
+          &:hover {
+            @include opacity(.7);
+          }
+          &+ span {
+            padding-right: 44px;
+          }
+        }
+        &.caret {
+          @include caret(mix($gray-subtle, $sidebar-bg, 60%));
+          display: block;
+          padding: 0;
+          margin-left:0;
+        }
+      }
+      ul {
+        margin-left: $s;
+        li {
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+      &.bg-dark {
+        background-color: mix($gray-dark, $sidebar-bg, 50%);
+      }
+      &.bg-darker {
+        background-color: mix($gray-dark, $sidebar-bg, 75%);
+      }
+    }
+  }
+}
+
+.sidebar-toggle {
+  border: none;
+  color: $brand-primary;
+  margin: 0;
+  padding: 0  16px;
+  height: $navbar-height-base;
+  line-height: $navbar-height-base;
+  background-color: transparent;
+  position: absolute;
+
+  &:before {
+    color: $gray-light;
+    content: "\e056";
+    font-family: "ABUI-icons";
+    font-size: floor($component-font-size-base * 1.467); // ~22px
+    font-style: normal;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    @include transition(color .25s linear);
+  }
+  &:hover,
+  &:focus {
+    outline: none;
+    &:before {
+      color: $link-hover-color;
+    }
+  }
+}
+.navbar-inverse  {
+  .sidebar-toggle {
+    &:before {
+      color: $navbar-inverse-link-color;
+    }
+    &:hover,
+    &:focus {
+      &:before {
+        color: $navbar-inverse-toggle-hover-color;
+      }
+    }
+  }
+}
+

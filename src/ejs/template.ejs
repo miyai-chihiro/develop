@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include modules/_head %>
+</head>
+<body>
+  <!-- warpper までのタグを読み込む -->
+  <% include modules/_layout-fixsidebar %>
+
+      <!-- 実際にしようるすときはここから削除 -->
+        <div class="mal">
+          <h4 class="text-primary"> カレンダーフォームを実装してみる </h4>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <label class="require">受付日</label>
+                <div class="icon-input">
+                  <input type="text" placeholder="入力または選択" value="2012/05/11" name="" class="abui-input js-datepicker">
+                  <span class="icon-font icon-abui-calendar-solid"></span>
+                </div>
+                <p class="help-block"></p>
+            </div>
+          </div>
+        </div>
+      <!-- 実際にしようるすときはここまで削除 -->
+
+  <% include modules/_footer %>
+  
+  <!--  必要なjs モジュールを読み込む / いつかは必要なモジュールファイルを結合して1つのファイル管理にできたら最高ですね。webpack とか -->
+  <script src="lib/js/jquery-ui-1.10.4.min.js"></script>
+  <script src="lib/js/jquery.ui.datepicker-ja.js"></script>
+
+  <!-- ページごとにファイル名.js を作成 / ページ単位の処理はこのページに作成 必要ない場合は、削除してください -->
+  <% var path = filename.split('/')[filename.split('/').length - 1].replace('.ejs','') %>
+  <script src="js/<%= path %>.js"></script>
+
+</body>
+</html>

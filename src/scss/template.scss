@@ -1,0 +1,11 @@
+@import "modules/variables";
+
+.bg-code {
+  padding: 2px 6px;
+  margin: 0 16px;
+  font-size: 85%;
+  color: $code-color;
+  border: 1px solid $code-color;
+  background-color: $code-bg;
+  border-radius: $border-radius-base;
+}

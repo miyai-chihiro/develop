@@ -1,0 +1,12 @@
+//
+// Breadcrumb
+// --------------------------------------------------
+
+.breadcrumb {
+padding: 11px 0;
+margin-bottom: 20px;
+list-style: none;
+background-color: transparent;
+@include border-top-radius($border-radius-base);
+font-size: ceil($component-font-size-base*0.928);
+}

@@ -1,0 +1,45 @@
+<% var path = filename.split('/')[filename.split('/').length - 1].replace('.ejs','') %>
+<% var title = ''; %>
+<% if(path == 'template'){ %> <% var title = 'テンプレート' %>  <% } %>
+<% if(path == 'CD001_001'){ %> <% var title = '新規登録ページ' %>  <% } %>
+<% if(path == 'dropdown'){ %> <% var title = 'ドロップダウン [new]' %>  <% } %>
+<% if(path == 'form'){ %> <% var title = 'フォーム [new]' %>  <% } %>
+
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-02">
+    <span class="sr-only">Toggle navigation</span>
+  </button>
+  <h2 class="navbar-title"><%= title %></h2>
+</div>
+<div class="collapse navbar-collapse">
+  <form class="navbar-form navbar-right" action="#" role="search">
+    <div class="form-group">
+      <div class="input-group input-group-rounded">
+        <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+        <span class="input-group-btn">
+          <button type="submit" class="btn"><span class="fui-search"></span></button>
+        </span>
+      </div>
+    </div>
+  </form>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="active"><a href="#fakelink">Active</a></li>
+    <li><a href="#fakelink">Item</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<b class="caret"></b></a>
+      <span class="dropdown-arrow"></span>
+      <ul class="dropdown-menu">
+        <li><dt>区分</dt><a href="#">Sub Menu Element</a></li>
+        <li><a href="#">Sub Menu Element</a></li>
+        <li><a href="#">Sub Menu Element</a></li>
+        <li><a href="#">Sub Menu Element</a></li>
+        <li><a href="#">Sub Menu Element</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Separated Sub Menu Element</a></li>
+        <li><a href="#">Separated Element</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Unread<span class="navbar-unread">1</span></a></li>
+    <li><a href="#">Badge<span class="navbar-new">1</span></a></li>
+  </ul>
+</div>

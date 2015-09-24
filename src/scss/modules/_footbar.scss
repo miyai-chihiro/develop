@@ -1,0 +1,13 @@
+//
+// Footbar
+// --------------------------------------------------
+
+
+.footbar {
+  position: fixed;
+  bottom: 0;
+  background: $gray-subtle;
+  width: 100%;
+  padding: 16px;
+  z-index: 1000;
+}

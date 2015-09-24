@@ -1,0 +1,127 @@
+//
+// Login
+// --------------------------------------------------
+
+
+body.login {
+  background-color: $brand-primary;
+  width: 100%;
+  min-width: 0;
+  display: table;
+}
+
+.login-screen {
+
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+  color: $inverse;
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+}
+
+.login-icon {
+
+  margin-bottom: 16px;
+  text-align: right;
+  @media (max-width: $grid-float-breakpoint) {
+    text-align: center;
+  }
+
+  > img {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+  }
+  > h4 {
+    font-size: ceil($component-font-size-base*1.714);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-top: 0;
+    small {
+      color: inherit;
+      display: block;
+      font-size: inherit;
+      font-weight: 700;
+    }
+  }
+}
+
+
+.login-form {
+
+  padding: 32px 0 0 32px;
+  border-radius: $border-radius-base;
+  @media (max-width: $grid-float-breakpoint) {
+    padding: 8px 0 0;
+  }
+  .form-group {
+    margin-bottom: 12px;
+  }
+
+  .form-control {
+    border-color: transparent;
+      &:focus {
+      border-color: mix($brand-primary, white, 40%);
+    }
+    & + .input-icon {
+      top: 2px;
+      right: 1px;
+    }
+  }
+
+  .btn-primary {
+      @include button-variant($btn-default-color, mix($brand-primary, black, 85%), mix($brand-primary, black, 90%), mix($btn-primary-active-bg, black, 90%));
+    }
+}
+
+.login-link {
+  color: mix($brand-primary, white, 50%);
+  display: block;
+  font-size: ceil($component-font-size-base*0.928);
+  margin-top: 16px;
+  text-align: center;
+}
+
+// credit
+
+.credit {
+  display: table;
+  font-size: ceil($component-font-size-base*0.928);
+  color: rgba($inverse, 0.8);
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  @media (max-width: $grid-float-breakpoint) {
+    position: relative;
+    display: block;
+    text-align: center;
+    margin-top: 36px;
+    margin-left: 32px;
+  }
+  span {
+    display: table-cell;
+    vertical-align: middle;
+    @media (max-width: $grid-float-breakpoint) {
+      display: block;
+      margin: 0 auto;
+      bottom: 0;
+    }
+  }
+  .icon-abui-astrolablogo-mark {
+    font-size: 40px;
+     color: rgba($inverse, 1);
+     padding-left: $m;
+     @media (max-width: $grid-float-breakpoint) {
+      padding-left: 0;
+      padding-top: 6px;
+    }
+  }
+}
+
+

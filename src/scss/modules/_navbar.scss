@@ -1,0 +1,1256 @@
+//
+// Navbars
+// --------------------------------------------------
+
+// Wrapper and base class
+//
+// Provide a static navbar from which we expand to create full-width, fixed, and
+// other navbar variations.
+
+.navbar {
+  font-size: $component-font-size-base;
+  min-height: $navbar-height-base;
+  // margin-bottom: $navbar-margin-bottom;
+  margin-bottom: 0;
+  border: none;
+  border-radius: 0;
+}
+
+.navbar-brandlogo {
+  &:before {
+    font-family: 'ABUI-icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\e199";
+  }
+  @media (min-width: $grid-float-breakpoint) {
+    padding-right: 56px;
+    &:before {
+      color: white;
+      display: block;
+      font-size: 32px;
+      width: 32px;
+      height: 32px;
+      @include opacity(.8);
+      position: absolute;
+      top: 8px;
+      right: 16px;
+    }
+  }
+  @media (max-width: $grid-float-breakpoint) {
+    &:before {
+      display: none;
+    }
+  }
+}
+
+// Navbar heading
+//
+// Groups `.navbar-title` and `.navbar-toggle` into a single component for easy
+// styling of responsive aspects.
+
+.navbar-header {
+  @media (min-width: $grid-float-breakpoint) {
+    float: left;
+  }
+}
+
+// Navbar collapse (body)
+//
+// Group your navbar content into this for easy collapsing and expanding across
+// various device sizes. By default, this content is collapsed when <768px, but
+// will expand past that for a horizontal display.
+//
+// To start (on mobile devices) the navbar links, forms, and buttons are stacked
+// vertically and include a `max-height` to overflow in case you have too much
+// content for the user's viewport.
+
+.navbar-collapse {
+  box-shadow: none;
+  padding-right: 16px;
+  padding-left: 16px;
+
+
+  @media (min-width: $grid-float-breakpoint) {
+    // Account for first and last children spacing
+    .navbar-nav.navbar-left:first-child {
+      margin-left: -16px;
+
+      > li:first-child a {
+        @include border-left-radius($navbar-border-radius);
+      }
+    }
+    .navbar-nav.navbar-right:last-child {
+      margin-right: -16px;
+
+      .navbar > .container & {
+        margin-right: -36px;
+      }
+      > .dropdown:last-child > a {
+        border-radius: 0 $navbar-border-radius $navbar-border-radius 0;
+      }
+    }
+    .navbar-form.navbar-right:last-child {
+      margin-right: -16px;
+
+      .navbar-fixed-top &,
+      .navbar-fixed-bottom & {
+        margin-right: 0;
+      }
+    }
+  }
+  @media (max-width: $grid-float-breakpoint-max) {
+    .navbar-nav.navbar-right:last-child {
+      margin-bottom: 3px;
+    }
+  }
+}
+
+// Both navbar header and collapse
+//
+// When a container is present, change the behavior of the header and collapse.
+
+.container,
+.container-fluid {
+  > .navbar-header,
+  > .navbar-collapse {
+    margin-right: -16px;
+    margin-left:  -16px;
+
+    @media (min-width: $grid-float-breakpoint) {
+      margin-right: 0;
+      margin-left:  0;
+    }
+  }
+}
+
+//
+// Navbar alignment options
+//
+// Display the navbar across the entirety of the page or fixed it to the top or
+// bottom of the page.
+
+// Static top (unfixed, but 100% wide) navbar
+.navbar-static-top {
+  z-index: $zindex-navbar;
+  border-width: 0;
+  border-radius: 0;
+}
+
+// Fix the top/bottom navbars when screen real estate supports it
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  z-index: $zindex-navbar-fixed;
+  border-radius: 0;
+}
+.navbar-fixed-top {
+  border-width: 0;
+}
+.navbar-fixed-bottom {
+  margin-bottom: 0; // override .navbar defaults
+  border-width: 0;
+}
+
+@media (min-width: 768px) {
+  .navbar-fixed-top .navbar-collapse,
+  .navbar-static-top .navbar-collapse,
+  .navbar-fixed-bottom .navbar-collapse {
+    padding-right: 16px;
+  }
+}
+
+
+// Title
+
+.navbar-title {
+  font-size: floor($component-font-size-base * 1.429); // ~20px
+  line-height: 1.1; // 22px
+  // font-weight: 700;
+  padding: (($navbar-height-base - 22px) / 2) 16px;
+  height: $navbar-height-base;
+  float: left;
+
+  > [class*="icon-abui-"] {
+    font-size: floor($component-font-size-base * 1.267); // ~19px
+    line-height: 1.263; // ~24px
+    vertical-align: top;
+  }
+
+  @media (min-width: $grid-float-breakpoint) {
+    .navbar > .container &,
+    .navbar > .container-fluid & {
+      margin-left: -16px;
+    }
+  }
+}
+
+h1.navbar-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: floor($component-font-size-base * 1.143); // ~16px
+  font-weight: bold;
+  padding: (($navbar-height-base - 16px) / 2) 16px;
+}
+h2.navbar-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+
+
+// Navbar toggle
+//
+// Custom button for toggling the `.navbar-collapse`, powered by the collapse
+// JavaScript plugin.
+
+.navbar-toggle {
+  border: none;
+  color: $brand-primary;
+  margin: 0 0 0 16px;
+  padding: 0  16px;
+  height: $navbar-height-base;
+  line-height: $navbar-height-base;
+
+  &:before {
+    color: $link-color;
+    content: "\e112";
+    font-family: "ABUI-icons";
+    font-size: floor($component-font-size-base * 1.467); // ~22px
+    font-style: normal;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    @include transition(color .25s linear);
+  }
+  &:hover,
+  &:focus {
+    outline: none;
+
+    &:before {
+      color: $link-hover-color;
+    }
+  }
+  .icon-bar {
+    display: none;
+  }
+
+  @media (min-width: $grid-float-breakpoint) {
+    display: none;
+  }
+}
+
+
+// .navbar-toggle {
+//   border: none;
+//   color: $brand-primary;
+//   margin: 0 0 0 16px;
+//   padding: 0  16px;
+//   height: $navbar-height-base;
+//   line-height: $navbar-height-base;
+
+//   &:before {
+//     color: $link-color;
+//     content: "\e00c";
+//     font-family: "Flat-UI-Icons";
+//     font-size: floor($component-font-size-base * 1.467); // ~22px
+//     font-style: normal;
+//     font-weight: normal;
+//     -webkit-font-smoothing: antialiased;
+//     @include transition(color .25s linear);
+//   }
+//   &:hover,
+//   &:focus {
+//     outline: none;
+
+//     &:before {
+//       color: $link-hover-color;
+//     }
+//   }
+//   .icon-bar {
+//     display: none;
+//   }
+
+//   @media (min-width: $grid-float-breakpoint) {
+//     display: none;
+//   }
+// }
+
+// Navbar nav links
+//
+// Builds on top of the `.nav` components with it's own modifier class to make
+// the nav the full height of the horizontal nav (above 768px).
+
+.navbar-nav {
+  margin: 0;
+
+  > li > a {
+    font-size: floor($component-font-size-base * 1.067); // ~16px
+    padding: (($navbar-height-base - 24px) / 2) 16px;
+    line-height: 22px;
+    //font-weight: 700;
+  }
+
+  .dropdown-toggle .caret {
+    border-top-color: $link-color;
+    border-bottom-color: $link-color;
+    border-width: 8px 6px;
+    margin-left: 4px;
+  }
+  > li > a:hover,
+  > li > a:focus,
+  .open > a:focus,
+  .open > a:hover {
+    background-color: transparent;
+
+    .caret {
+      border-top-color: $link-hover-color;
+      border-bottom-color: $link-hover-color;
+    }
+  }
+
+  [class^="icon-abui-"] {
+    line-height: 20px;
+    position: relative;
+    top: 1px;
+  }
+  .visible-sm,
+  .visible-xs {
+    > [class^="icon-abui-"] {
+      margin-left: 12px;
+    }
+  }
+
+  @media (max-width: $grid-float-breakpoint-max) {
+    margin: 0 -16px;
+
+    // Dropdowns get custom display when collapsed
+    .open .dropdown-menu {
+      > li > a,
+      .dropdown-header {
+        padding: 7px 15px 7px 32px !important;
+      }
+      > li > a {
+        line-height: 23px;
+      }
+    }
+    > li > a {
+      padding-top: 7px;
+      padding-bottom: 7px;
+    }
+  }
+}
+
+// Navbar form
+//
+// Extension of the `.form-inline` with some extra flavor for optimum display in
+// our navbars.
+
+.navbar-input {
+  @include input-size($input-height-small, 5px, 12px, $input-font-size-small, $navbar-input-line-height);
+}
+
+.navbar-form {
+  @include box-shadow(none);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-right: 0;
+  padding-left: 0;
+
+  // Vertically center in expanded, horizontal navbar
+  @include navbar-vertical-align($input-height-small);
+
+  .form-group {
+    margin-top: 0;
+    @media (max-width: $grid-float-breakpoint-max) {
+      margin-bottom: 5px;
+    }
+  }
+
+  @media (max-width: $grid-float-breakpoint-max) {
+    margin: 3px -16px;
+    width: auto;
+  }
+
+  .navbar-nav + &.navbar-left,
+  &.navbar-right:last-child { // Width fix for Webkit and IE11
+    @media (min-width: $grid-float-breakpoint) {
+      width: 260px;
+    }
+  }
+
+  // Controls sizing
+  .form-control,
+  .input-group-addon,
+  .btn { @extend .navbar-input; }
+
+  // Reset rounded corners
+  @include form-controls-corners-reset();
+
+  .form-control {
+    font-size: $component-font-size-base;
+    border-radius: 5px;
+    display: table-cell;
+  }
+  .form-group + .btn {
+    font-size: $component-font-size-base;
+    border-radius: 5px;
+    margin-left: 4px;
+  }
+
+  @media (max-width: $grid-float-breakpoint-max) {
+    .form-group {
+      margin-bottom: 0;
+
+      & + .btn {
+        margin-top: 9px;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+// Dropdown menus
+
+// Menu position and menu carets
+.navbar-nav > li {
+  > .dropdown-menu {
+    min-width: 100%;
+    border-radius: $border-radius-base;
+
+    @media (max-width: $grid-float-breakpoint-max) {
+      @include transition(all 0s);
+      display: none;
+    }
+  }
+  &.open > .dropdown-menu {
+    @media (max-width: $grid-float-breakpoint-max) {
+      margin-top: 0 !important;
+      display: block;
+    }
+    .divider {
+      @media (max-width: $grid-float-breakpoint-max) {
+        background-color: $gray-subtler;
+        margin-left: 32px;
+      }
+    }
+  }
+}
+.navbar-right {
+  .dropdown-menu {
+    @media (min-width: $grid-float-breakpoint) {
+      right: auto;
+      left: 0;
+    }
+  }
+}
+
+
+// Menu position and menu caret support for dropups via extra dropup class
+.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
+  @include border-bottom-radius($border-radius-base);
+}
+
+.navbar-nav > .open > .dropdown-toggle,
+.navbar-nav > .open > .dropdown-toggle:focus,
+.navbar-nav > .open > .dropdown-toggle:hover {
+  background-color: transparent;
+}
+
+// Text in navbars
+//
+// Add a class to make any element properly align itself vertically within the navbars.
+
+.navbar-text {
+  font-size: floor($component-font-size-base * 1.067); // ~16px
+  line-height: 1.438; // ~23px
+  color: $gray;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @include navbar-vertical-align(12px, $navbar-height-base);
+
+  span {
+    line-height: 1;
+    padding: 0;
+    padding-right: 8px;
+    display: inline-block;
+    &.datetime {
+      color: $gray-light;
+    }
+    &.username {
+      padding-right: 16px;
+      margin-right: 16px;
+      border-right: 1px solid $gray-light;
+    }
+  }
+
+  &.navbar-logininfo {
+    font-size: floor($component-font-size-base * 0.858); // ~12px
+    // @include navbar-vertical-align(48px, $navbar-height-base);
+
+    @media (max-width: $grid-float-breakpoint-max) {
+      float: left;
+    }
+  }
+
+  @media (min-width: $grid-float-breakpoint) {
+    margin-left: 16px;
+    margin-right: 8px;
+
+    // Outdent the form if last child to line up with content down the page
+    &.navbar-right:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+
+
+// Buttons in navbars
+//
+// Vertically center a button within a navbar (when *not* in a form).
+
+.navbar-btn {
+  margin-top: (($navbar-height-base - $input-height-base) / 2);
+  margin-bottom: (($navbar-height-base - $input-height-base) / 2);
+
+  &.btn-sm {
+    margin-top: (($navbar-height-base - $input-height-small) / 2);
+    margin-bottom: (($navbar-height-base - $input-height-small) / 2) - 1;
+  }
+  &.btn-xs {
+    margin-top: (($navbar-height-base - 24) / 2);
+    margin-bottom: (($navbar-height-base - 24) / 2);
+  }
+}
+
+// Unread icon
+//
+.navbar-unread,
+.navbar-new {
+  font-family: $font-family-base;
+  background-color: $brand-danger;
+  border-radius: 50%;
+  color: $inverse;
+  font-size: 0;
+  font-weight: 700;
+  height: 6px;
+  line-height: 1;
+  position: absolute;
+  right: 12px;
+  text-align: center;
+  top: 35%;
+  width: 6px;
+  z-index: 10;
+
+  // .active & {
+  //   background-color: $inverse;
+  //   display: none;
+  // }
+}
+
+.navbar-new {
+  background-color: $brand-danger;
+  font-size: 12px;
+  height: 18px;
+  line-height: 17px;
+  margin: -6px -10px;
+  min-width: 18px;
+  padding: 0 1px;
+  width: auto;
+  -webkit-font-smoothing: subpixel-antialiased;
+
+  @media (max-width: $grid-float-breakpoint) {
+    position: static;
+    float: right;
+    margin: 0 0 0 10px;
+  }
+}
+
+.navbar-unread {
+  @media (max-width: $grid-float-breakpoint) {
+    position: static;
+    float: right;
+    margin: 0 0 0 10px;
+  }
+}
+
+// Icon in navbars
+//
+
+.navbar-icon {
+  font-size: floor($component-font-size-base * 1.143); // ~16px
+  line-height: 1.438; // ~23px
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0;
+  float: right;
+
+  @include navbar-vertical-align(48px, $navbar-height-base);
+
+  span {
+    display: block;
+    padding: 16px 12px;
+    @media (max-width: $grid-float-breakpoint-max) {
+      padding-right: 0;
+      margin-right: -8px;
+    }
+  }
+
+
+}
+
+
+
+// Alternate navbars
+// --------------------------------------------------
+
+// Default navbar
+.navbar-default {
+  background-color: $navbar-default-bg;
+
+  .navbar-title {
+    color: $navbar-default-brand-color;
+    a {
+      color: $navbar-default-brand-color;
+      &:hover,
+      &:focus {
+        color: $navbar-default-brand-hover-color;
+        background-color: $navbar-default-brand-hover-bg;
+      }
+    }
+
+    .navbar-title-separator {
+      color: $navbar-default-link-active-color;
+      padding: 0 8px;
+      font-weight: 100;
+    }
+  }
+
+
+  .navbar-toggle {
+    &:before {
+      color: $navbar-default-toggle-color;
+    }
+    &:hover,
+    &:focus {
+      background-color: transparent;
+
+      &:before {
+        color: $navbar-default-toggle-hover-color;
+      }
+    }
+  }
+
+  .navbar-collapse {
+    border-color: $navbar-default-form-border;
+    border-width: 2px;
+  }
+  .navbar-form {
+    @extend .navbar-collapse;
+    padding-left: 32px;
+    padding-right: 0;
+
+    @media (max-width: $grid-float-breakpoint-max) {
+      border: none;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+
+  .navbar-nav {
+    > li > a {
+      color: $navbar-default-link-color;
+
+      &:hover,
+      &:focus {
+        color: $navbar-default-link-hover-color;
+        background-color: $navbar-default-link-hover-bg;
+      }
+    }
+    > .active > a {
+      color: $navbar-default-link-active-color;
+      background-color: $navbar-default-link-active-bg;
+      border-bottom: 2px solid $navbar-default-link-hover-color;
+      // &,
+      &:hover,
+      &:focus {
+        color: $navbar-default-link-hover-color;
+        background-color: $navbar-default-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-default-link-disabled-color;
+        background-color: $navbar-default-link-disabled-bg;
+      }
+    }
+  }
+
+  // Dropdown menu items and carets
+  .navbar-nav {
+    // Caret text color
+    > .dropdown > a .caret,
+    .dropdown-toggle .caret {
+      border-top-color: $navbar-default-caret-color;
+      border-bottom-color: $navbar-default-caret-color;
+    }
+    // Caret should match text color on active
+    > .active > a .caret {
+      border-top-color: $navbar-default-caret-active-color;
+      border-bottom-color: $navbar-default-caret-active-color;
+    }
+    // Caret should match text color on hover
+    > .dropdown > a:hover .caret,
+    > .dropdown > a:focus .caret {
+      border-top-color: $navbar-default-caret-hover-color;
+      border-bottom-color: $navbar-default-caret-hover-color;
+    }
+
+    // Remove background color from open dropdown
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: $navbar-default-link-active-bg;
+        color: $navbar-default-link-active-color;
+        .caret {
+          border-top-color: $navbar-default-caret-active-color;
+          border-bottom-color: $navbar-default-caret-active-color;
+        }
+      }
+    }
+
+
+    @media (max-width: $grid-float-breakpoint-max) {
+      // Dropdowns get custom display when collapsed
+      .open .dropdown-menu {
+        > li > a {
+          color: $navbar-default-link-color;
+          &:hover,
+          &:focus {
+            color: $navbar-default-link-hover-color;
+            background-color: $navbar-default-link-hover-bg;
+          }
+        }
+        > .active > a {
+          &,
+          &:hover,
+          &:focus {
+            color: $navbar-default-link-active-color;
+            background-color: $navbar-default-link-active-bg;
+          }
+        }
+        > .disabled > a {
+          &,
+          &:hover,
+          &:focus {
+            color: $navbar-default-link-disabled-color;
+            background-color: $navbar-default-link-disabled-bg;
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-form {
+    .form-control {
+      border-color: transparent;
+      @include placeholder($navbar-default-form-placeholder);
+
+      &:focus {
+        border-color: $brand-secondary;
+         color: $brand-secondary;
+      }
+    }
+    .input-group-btn .btn {
+      border-color: transparent;
+      color: $navbar-default-form-icon;
+    }
+    .input-group.focus {
+      .form-control,
+      .input-group-btn .btn {
+         border-color: $brand-secondary;
+         color: $brand-secondary;
+      }
+    }
+  }
+
+  .navbar-text {
+    color: $gray;
+    a {
+      color: $navbar-default-link-color;
+
+      &:hover,
+      &:focus {
+        color: $navbar-default-link-hover-color;
+      }
+    }
+  }
+
+  .navbar-btn {
+    @include button-variant($gray-light, transparent, $gray-subtler, $btn-flat-default-active-bg);
+  }
+
+  .navbar-icon {
+    a {
+      color: $gray-light;
+      &:hover,
+      &:focus {
+        color: $navbar-default-toggle-hover-color;
+      }
+    }
+  }
+}
+
+// Inverse navbar
+.navbar-inverse {
+  background-color: $navbar-inverse-bg;
+
+  .navbar-title {
+    color: $navbar-inverse-brand-color;
+    a {
+      color: $navbar-inverse-brand-color;
+      &:hover,
+      &:focus {
+        color: $navbar-inverse-brand-hover-color;
+        background-color: $navbar-inverse-brand-hover-bg;
+      }
+    }
+    .navbar-title-separator {
+      color: mix($inverse, $navbar-inverse-bg, 60%);
+    }
+  }
+
+  .navbar-toggle {
+    &:before {
+      color: $navbar-inverse-toggle-color;
+    }
+    &:hover,
+    &:focus {
+      background-color: transparent;
+
+      &:before {
+        color: $navbar-inverse-toggle-hover-color;
+      }
+    }
+  }
+
+  .navbar-collapse {
+    border-color: darken($navbar-inverse-bg, 3%);
+    border-width: 2px;
+  }
+
+  .navbar-nav {
+    > li > a {
+      color: $navbar-inverse-link-color;
+
+      &:hover,
+      &:focus {
+        color: $navbar-inverse-link-hover-color;
+        background-color: $navbar-inverse-link-hover-bg;
+      }
+    }
+    > .active > a {
+      color: $navbar-inverse-link-active-color;
+      border-bottom: 2px solid $navbar-inverse-link-active-bg;
+      background-color: $navbar-inverse-link-active-bg;
+
+      &:hover,
+      &:focus {
+        color: $navbar-inverse-link-hover-color;
+        background-color: $navbar-inverse-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-inverse-link-disabled-color;
+        background-color: $navbar-inverse-link-disabled-bg;
+      }
+    }
+  }
+
+  // Dropdown menu items and carets
+  .navbar-nav {
+    // Caret should match text color on hover
+    > .dropdown > a:hover .caret,
+    > .dropdown > a:focus .caret {
+      border-top-color: $navbar-inverse-caret-hover-color;
+      border-bottom-color: $navbar-inverse-caret-hover-color;
+    }
+
+    // Remove background color from open dropdown
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: $navbar-inverse-link-active-bg;
+        color: $navbar-inverse-link-active-color;
+        border-left-color: transparent;
+        .caret {
+          border-top-color: $navbar-inverse-link-active-color;
+          border-bottom-color: $navbar-inverse-link-active-color;
+        }
+      }
+    }
+    > .dropdown > a .caret {
+      border-top-color: $navbar-inverse-caret-color;
+      border-bottom-color: $navbar-inverse-caret-color;
+    }
+
+    > .open {
+      > .dropdown-arrow {
+        border-top-color: $navbar-inverse-dropdown-arrow;
+        border-bottom-color: $navbar-inverse-dropdown-arrow;
+      }
+      > .dropdown-menu {
+        background-color: $navbar-inverse-dropdown-bg;
+        @media (max-width: $grid-float-breakpoint-max) {
+          background-color: $navbar-inverse-bg;
+        }
+        // padding: 3px 4px;
+
+        > li > a {
+          color: $navbar-inverse-dropdown-link-color;
+          border-radius: $border-radius-base;
+          padding: 6px 9px;
+
+          &:hover,
+          &:focus {
+            color: $navbar-inverse-dropdown-link-hover-color;
+            background-color: $navbar-inverse-dropdown-link-hover-bg;
+          }
+        }
+        li {
+          dt {
+            color: darken($navbar-inverse-dropdown-bg, 25%);
+            @media (max-width: $grid-float-breakpoint-max) {
+              color: mix($inverse, $navbar-inverse-bg, 80%);
+            }
+          }
+        }
+        > .divider {
+          background-color: $dropdown-inverse-divider;
+          height: 1px;
+          // margin-left: -4px;
+          // margin-right: -4px;
+          @media (max-width: $grid-float-breakpoint-max) {
+            margin-left: 32px;
+            background-color: mix($dropdown-inverse-divider, $navbar-inverse-bg, 15%);
+          }
+        }
+      }
+    }
+
+    @media (max-width: $grid-float-breakpoint-max) {
+       > li > a {
+         border-left-width: 0;
+       }
+      // Dropdowns get custom display when collapsed
+      .open .dropdown-menu {
+        > li > a {
+          color: $navbar-inverse-link-color;
+          &:hover,
+          &:focus {
+            color: $navbar-inverse-link-hover-color;
+            background-color: $navbar-inverse-link-hover-bg;
+          }
+        }
+        > .active > a {
+          &,
+          &:hover,
+          &:focus {
+            color: $navbar-inverse-link-active-color;
+            background-color: $navbar-inverse-link-active-bg;
+          }
+        }
+        > .disabled > a {
+          &,
+          &:hover,
+          &:focus {
+            color: $navbar-inverse-link-disabled-color;
+            background-color: $navbar-inverse-link-disabled-bg;
+          }
+        }
+      }
+      // Custom background for dividers when collapsed
+      .dropdown-menu .divider {
+        background-color: $navbar-inverse-divider;
+      }
+    }
+  }
+
+  .navbar-form {
+    @extend .navbar-collapse;
+    padding-left: 32px;
+    padding-right: 0;
+
+    @media (max-width: $grid-float-breakpoint-max) {
+      border: none;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .form-control {
+      color: $navbar-inverse-form-placeholder;
+      border-color: transparent;
+      background-color: $navbar-inverse-form-bg;
+      @include placeholder($navbar-inverse-form-placeholder);
+
+      &:focus {
+        border-color: $brand-secondary;
+         color: $brand-secondary;
+      }
+    }
+    .btn {
+      @include button-variant($btn-default-color, $brand-secondary, $btn-primary-hover-bg, $btn-primary-active-bg);
+    }
+    .input-group-btn .btn {
+      border-color: transparent;
+      background-color: $navbar-inverse-form-bg;
+      color: $navbar-inverse-form-icon;
+    }
+    .input-group.focus {
+      .form-control,
+      .input-group-btn .btn {
+         border-color: $brand-secondary;
+         color: $brand-secondary;
+      }
+    }
+
+    @media (max-width: $grid-float-breakpoint-max) {
+      border-color: $navbar-inverse-form-border;
+      border-width: 2px 0;
+    }
+  }
+
+  .navbar-text {
+    color: $inverse;
+    a {
+      color: $navbar-inverse-link-color;
+      &:hover,
+      &:focus {
+        color: $navbar-inverse-link-hover-color;
+      }
+    }
+    span {
+      &.datetime {
+        color: $navbar-inverse-link-hover-color;
+      }
+      &.username {
+        border-right: 1px solid $navbar-inverse-link-hover-color;
+      }
+    }
+  }
+
+  .navbar-btn {
+    @include button-variant($btn-default-color, $brand-secondary, $btn-primary-hover-bg, $btn-primary-active-bg);
+  }
+  .navbar-icon {
+    a {
+      color: $navbar-inverse-link-color;
+      &:hover,
+      &:focus {
+        color: $navbar-inverse-toggle-hover-color;
+      }
+    }
+  }
+}
+
+// Embossed navbar
+.navbar-embossed {
+  @media (min-width: $grid-float-breakpoint) {
+    > .navbar-collapse {
+      border-radius: $navbar-border-radius;
+      @include box-shadow(inset 0 -2px 0 fade(black, 15%));
+    }
+    &.navbar-inverse .navbar-nav {
+      .active > a,
+      .open > a {
+        @include box-shadow(inset 0 -2px 0 fade(black, 15%));
+      }
+    }
+  }
+}
+
+// Large navbar
+.navbar-lg {
+  min-height: $navbar-height-large;
+
+  .navbar-title {
+    line-height: 1;
+    padding-top: (($navbar-height-large - 20px) / 2);
+    padding-bottom: (($navbar-height-large - 20px) / 2);
+
+    > [class*="icon-abui-"] {
+      font-size: floor($component-font-size-base * 1.6); // ~24px
+      line-height: 1;
+    }
+  }
+
+  .navbar-nav {
+    > li > a {
+      font-size: $component-font-size-base;
+      line-height: 1.6;
+
+      @media (min-width: $grid-float-breakpoint) {
+        padding-top: (($navbar-height-large - 24px) / 2);
+        padding-bottom: (($navbar-height-large - 24px) / 2);
+      }
+    }
+  }
+
+  .navbar-toggle {
+    height: $navbar-height-large;
+    line-height: $navbar-height-large;
+  }
+
+  .navbar-form {
+    @include navbar-vertical-align($input-height-small, $navbar-height-large);
+  }
+
+  .navbar-text {
+    @include navbar-vertical-align(24px, $navbar-height-large);
+  }
+
+  .navbar-btn {
+    margin-top: (($navbar-height-large - $input-height-base) / 2);
+    margin-bottom: (($navbar-height-large - $input-height-base) / 2);
+
+    &.btn-sm {
+      margin-top: (($navbar-height-large - $input-height-small) / 2);
+      margin-bottom: (($navbar-height-large - $input-height-small) / 2);
+    }
+    &.btn-xs {
+      margin-top: (($navbar-height-large - 24px) / 2);
+      margin-bottom: (($navbar-height-large - 24px) / 2);
+    }
+  }
+}
+
+// Foot Block
+.navbar-footblock {
+  @include opacity(.9);
+  &:hover {
+    @include opacity(1);
+  }
+  .navbar-nav {
+    .btn {
+      margin-top: (($navbar-height-base - $input-height-base) / 2 + 1);
+      @include button-variant($gray, transparent, transparent, transparent, transparent);
+      &.disabled,
+      &[disabled],
+      fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+          color: $gray-light;
+        }
+      }
+      &:hover {
+        color: $brand-primary
+      }
+    }
+    .dropdown {
+      .dropdown-toggle {
+        margin-top: (($navbar-height-base - $input-height-base) / 2 );
+      }
+    }
+    li {
+      .navbar-text {
+        padding: 12px 16px 12px 0;
+        margin-top: (($navbar-height-base - $input-height-base) / 2 + 1);
+        color: $gray-light;
+      }
+    }
+    &.navbar-center {
+      li {
+        .navbar-text {
+          padding: 0 16px;
+          margin-bottom: -8px;
+        }
+      }
+      .dropdown {
+        .dropdown-toggle {
+          margin-top: 0;
+          top: (($navbar-height-base - $input-height-base) / 2 );
+        }
+      }
+    }
+
+  }
+  &.navbar-lg {
+    .btn {
+      margin-top: (($navbar-height-large - $input-height-base) / 2 - 1);
+    }
+  }
+}
+@media (max-width: $grid-float-breakpoint-max) {
+  .navbar-footblock {
+    @include opacity(1);
+    position: relative;
+    ul {
+      li {
+        text-align: center;
+      }
+    }
+    .navbar-right {
+      float: none;
+    }
+    .navbar-center {
+      position: relative;
+      width: auto;
+      li {
+        display: block;
+      }
+    }
+  }
+}
+
+// Dropdown Position {
+.navbar-fixed-bottom {
+  .dropdown .dropdown-menu,
+  .select .dropdown-menu {
+    top: auto;
+    bottom: 100%;
+  }
+  .select .dropdown-menu {
+    margin-bottom: 8px;
+    width: auto;
+  }
+}
+
+
+// navbar Position
+@media (min-width: $grid-float-breakpoint) {
+  .navbar-nav.navbar-center {
+    width: 100%;
+    position: absolute;
+    float: none;
+    text-align: center;
+    > li {
+     float: none;
+     display: inline-block;
+    }
+  }
+  .navbar-nav.navbar-right {
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+

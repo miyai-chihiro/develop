@@ -1,0 +1,24 @@
+//
+// Combobox
+// --------------------------------------------------
+
+.combobox {
+	input {
+	  position: absolute;
+	  margin: 1px 0 0 1px;
+	  z-index: 500;
+	  border: none;
+	  font-size: 14px;
+	  padding: 8px 12px;
+	  height: 42px;
+	  width: 80%;
+	  &[disabled] {
+	  	// @include opacity(1);
+	  	background: transparent;
+	  	color: rgba($gray-dark, .7);
+	  }
+	}
+	.btn-input {
+		color: transparent;
+	}
+}

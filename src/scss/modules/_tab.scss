@@ -1,0 +1,90 @@
+//
+// Tab
+// --------------------------------------------------
+
+
+.nav-tabs {
+  border-bottom: 0px;
+  margin-bottom: 16px;
+  > li {
+    margin-bottom: 0;
+    > a {
+      margin-right: 4px;
+      @include border-top-radius($border-radius-base);
+      @include border-bottom-radius(0);
+      border:0;
+      background: $gray-lighter;
+      color: $inverse;
+      font-size: ceil($component-font-size-base*0.928);
+      padding: 13px 32px;
+      &:hover {
+        border: 0;
+        background: mix($gray-lighter, white, 70%);
+      }
+      &:focus {
+        border: 0;
+        background: mix($gray-lighter, white, 70%);
+      }
+    }
+    &.active {
+      > a {
+        border: 0;
+        cursor: default;
+        background: $gray-subtle;
+        color: $gray;
+        &:hover,
+        &:focus {
+          border: 0;
+          background: $gray-subtle;
+        }
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        border-style: solid;
+        border-width: 0 6px 8px 6px;
+        border-color: transparent transparent white transparent;
+        height: 0;
+        margin-top: -8px;
+        margin-left: -6px;
+        @include opacity(1);
+        width: 0;
+        z-index: 10;
+        position: absolute;
+        left: 50%;
+      }
+    }
+  }
+  &.nav-justified {
+    > li {
+      > a {
+        margin-right: 4px;
+        border: 0;
+        &:hover,
+        &:focus {
+          border: 0;
+        }
+      }
+      &.active {
+        a {
+          border: 0;
+          &:hover,
+          &:focus {
+            border: 0;
+          }
+        }
+        @media (max-width: $grid-float-breakpoint) {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+

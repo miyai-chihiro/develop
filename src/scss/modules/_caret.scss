@@ -1,0 +1,38 @@
+//
+// Caret
+// --------------------------------------------------
+
+.caret {
+  border-width: 8px 6px;
+  border-bottom-color: $gray-subtle;
+  border-top-color: $gray-subtle;
+  border-style: solid;
+  border-bottom-style: none;
+  @include transition(.25s);
+  @include scale(1.001,1);
+}
+
+@mixin caret($color: $gray-subtle) {
+  border-bottom-color: $color;
+  border-top-color: $color;
+}
+
+.dropup .caret,
+.dropup .btn-lg .caret,
+.navbar-fixed-bottom .dropdown .caret {
+  border-bottom-width: 8px;
+}
+
+.btn-lg .caret {
+  border-top-width: 8px;
+  border-right-width: 6px;
+  border-left-width: 6px;
+}
+
+// Expander
+.expander {
+  @include rotate(-90deg);
+  &.open {
+    @include rotate(0deg);
+  }
+}
