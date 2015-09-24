@@ -36,7 +36,7 @@ gulp.task('ejs',function(){
     ['src/ejs/**/*.ejs','!' + 'src/ejs/**/_*.ejs']
   )
   .pipe(ejs())
-  .pipe(gulp.dest('src/public'))
+  .pipe(gulp.dest('public'))
 });
 
 //styledocco
@@ -59,9 +59,10 @@ gulp.task('styledocco',function(){
 
 // watch
 gulp.task('watch', function () {
-    gulp.watch('scss/**/*.scss', ['style']);
-    gulp.watch('styleguide/scss/**/*.scss', ['styledocco']);
-    gulp.watch("./**/*.html").on("change", browser.reload);
+    gulp.watch('src/scss/**/*.scss', ['style']);
+    gulp.watch("src/ejs/**/*.ejs",['ejs']);
+    gulp.watch("public/**/*.html").on("change", browser.reload);
+    gulp.watch("public/**/*.js").on("change", browser.reload);
 });
 
 gulp.task('default',['server','watch']);

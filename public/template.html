@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<title>プロジェクト テンプレート</title>
+<link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- ページごとにファイル名.css を作成 / ページ単位のスタイルはこのページに作成 -->
+
+<link rel="stylesheet" type="text/css" href="css/template.css">
+</head>
+<body>
+  <!-- warpper までのタグを読み込む -->
+    <div class="sidebar sidebar-fixed-top-bs">
+      <p class="category">projects_template</p>
+<ul>
+  <li><a href="">CD001_001</a></li>
+  <li><a href="">CD001_002</a></li>
+  <li><a href="">CD001_003</a></li>
+</ul>
+
+
+  </div><!-- /.sidebar -->
+
+  <div id="header-site" class="navbar navbar-inverse navbar-brandlogo fix-sidebar  navbar-fixed-top with-sidebar-below">
+    <div class="navbar-header">
+  <button type="button" class="sidebar-toggle">
+    <span class="sr-only">Toggle sidebar</span>
+  </button>
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <h1 class="navbar-title"><a href="#">H1タイトル</a></h1>
+</div>
+<div class="navbar-collapse collapse" id="navbar-collapse-01">
+  <div class="navbar-right">
+    <p class="navbar-text navbar-logininfo">
+    <span class="datetime">2014/00/00</span><span class="username">0000 : Username</span><span><a href="" class="">ログアウト</a></span>
+  </p>
+  <p class="navbar-icon"><a href="#"><span class="icon-abui-guide"></span></a></p>
+  </div>
+</div>
+  </div><!-- /.navbar -->
+  <div class="wrapper with-navbar-fixed-top-bslg fix-sidebar">
+    <!-- wrapper内の navbar -->
+    <nav id="header-content" class="navbar navbar-default navbar-lg fix-sidebar__leftmargin with-navbar-fixed-top navbar-fixed-top">
+      
+
+   
+
+
+
+
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-02">
+    <span class="sr-only">Toggle navigation</span>
+  </button>
+  <h2 class="navbar-title">テンプレート</h2>
+</div>
+<div class="collapse navbar-collapse">
+  <form class="navbar-form navbar-right" action="#" role="search">
+    <div class="form-group">
+      <div class="input-group input-group-rounded">
+        <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+        <span class="input-group-btn">
+          <button type="submit" class="btn"><span class="fui-search"></span></button>
+        </span>
+      </div>
+    </div>
+  </form>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="active"><a href="#fakelink">Active</a></li>
+    <li><a href="#fakelink">Item</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<b class="caret"></b></a>
+      <span class="dropdown-arrow"></span>
+      <ul class="dropdown-menu">
+        <li><dt>区分</dt><a href="#">Sub Menu Element</a></li>
+        <li><a href="#">Sub Menu Element</a></li>
+        <li><a href="#">Sub Menu Element</a></li>
+        <li><a href="#">Sub Menu Element</a></li>
+        <li><a href="#">Sub Menu Element</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Separated Sub Menu Element</a></li>
+        <li><a href="#">Separated Element</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Unread<span class="navbar-unread">1</span></a></li>
+    <li><a href="#">Badge<span class="navbar-new">1</span></a></li>
+  </ul>
+</div>
+    </nav>
+
+    <div class="container fix-sidebar__leftmargin">
+
+      <!-- 実際にしようるすときはここから削除 -->
+        <div class="mal">
+          <h4 class="text-primary"> カレンダーフォームを実装してみる </h4>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <label class="require">受付日</label>
+                <div class="icon-input">
+                  <input type="text" placeholder="入力または選択" value="2012/05/11" name="" class="abui-input js-datepicker">
+                  <span class="icon-font icon-abui-calendar-solid"></span>
+                </div>
+                <p class="help-block"></p>
+            </div>
+          </div>
+        </div>
+      <!-- 実際にしようるすときはここまで削除 -->
+
+      </div><!-- /.container .with-sidebar -->
+</div><!-- /.wrapper -->
+
+<!-- Load JS here for greater good =============================-->
+<script src="lib/js/jquery-1.8.3.min.js"></script>
+<script src="lib/js/bootstrap.min.js"></script>
+<script src="lib/js/prettify.js"></script>
+  
+  <!--  必要なjs モジュールを読み込む / いつかは必要なモジュールファイルを結合して1つのファイル管理にできたら最高ですね。webpack とか -->
+  <script src="lib/js/jquery-ui-1.10.4.min.js"></script>
+  <script src="lib/js/jquery.ui.datepicker-ja.js"></script>
+
+  <!-- ページごとにファイル名.js を作成 / ページ単位の処理はこのページに作成 必要ない場合は、削除してください -->
+  
+  <script src="js/template.js"></script>
+
+</body>
+</html>
