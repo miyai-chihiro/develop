@@ -5,7 +5,15 @@ var gulp = require("gulp"),
     autoprefixer = require('gulp-autoprefixer'),
     ejs = require("gulp-ejs"),
     browser = require("browser-sync"),
-    webpack = require('webpack');
+    webpack = require('webpack'),
+    webpack = require('gulp-webpack');
+
+// タスク名はファイル名と同じにしておくと見通しが良い
+gulp.task('webpack', function () {
+    gulp.src('src/js/application.js')
+        .pipe(webpack( require('./webpack.config.js') ))
+        .pipe(gulp.dest('./public/js'));
+});
 
 //server
 gulp.task("server", function() {
@@ -61,6 +69,7 @@ gulp.task('styledocco',function(){
 gulp.task('watch', function () {
     gulp.watch('src/scss/**/*.scss', ['style']);
     gulp.watch("src/ejs/**/*.ejs",['ejs']);
+    gulp.watch("src/js/**/*.js",['webpack']);
     gulp.watch("public/**/*.html").on("change", browser.reload);
     gulp.watch("public/**/*.js").on("change", browser.reload);
 });
