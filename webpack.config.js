@@ -1,10 +1,11 @@
 var webpack = require('webpack');
 module.exports = {
   entry: {
-    app: './src/js/app.js'
+    application: './src/js/application.js',
+    template: './src/js/template.js',
   },
   output: {
-    path: __dirname + '/dist',
+    path: __dirname + '/public/js',
     filename: '[name].js'
   },
   plugins: [
